@@ -1,6 +1,4 @@
-# wp-portfolio
-
-# CDPHE-WIC
+# Starter repo for WP Projects
 
 ## Project setup
 
