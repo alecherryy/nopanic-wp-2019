@@ -4,7 +4,7 @@
 
 1.  After cloning the repo, run this command.
     ```bash
-    cd wp-content/themes/starter
+    cd wp-content/themes/nopanic
     ```
 2.  Run the command to install node.
     ```bash
