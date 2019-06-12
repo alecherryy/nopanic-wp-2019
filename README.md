@@ -4,7 +4,7 @@
 
 1.  After cloning the repo, run this command.
     ```bash
-    cd wp-content/themes/alecherryy
+    cd wp-content/themes/starter
     ```
 2.  Run the command to install node.
     ```bash
