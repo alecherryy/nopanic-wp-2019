@@ -1,0 +1,161 @@
+.site-logo {
+  color: $white;
+  font-size: $base-font-size;
+  left: 25px;
+  margin: 0;
+  mix-blend-mode: difference;
+  position: fixed;
+  top: 25px;
+  z-index: 9;
+
+  @include bp-large {
+    left: 90px;
+  }
+
+  @include bp-xxlarge {
+    font-size: 36px;
+    max-width: 50%;
+  }
+}
+
+.nav-main-inner {
+  display: none;
+
+  @include bp-medium {
+    display: block;
+  }
+}
+  
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  z-index: 9;
+
+  &.menu--main {
+
+    li {
+      display: inline-block;
+      margin: 0;
+      padding: 0 .5rem;
+    }
+  }
+
+  @include bp-large {
+    display: block;
+    right: 90px;
+
+    li {
+      display: inline-block;
+      margin: 0;
+      padding: 0 .5rem;
+    }
+  }
+
+  li {
+    margin: 0;
+    padding: 0 .5rem;
+
+    @include bp-xxlarge {
+      padding: 0 .75rem;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 0 .25rem;
+    position: relative;
+    text-transform: uppercase;
+
+    &:before {
+      content: '';
+      background-color: $red;
+      bottom: 0;
+      height: 1px;
+      left: 50%;
+      position: absolute;
+      transition: all .4s ease-in-out;
+      width: 0;
+    }
+    
+    &:after {
+      content: '';
+      background-color: $red;
+      bottom: 0;
+      height: 1px;
+      right: 50%;
+      position: absolute;
+      transition: all .4s ease-in-out;
+      width: 0;
+    }
+
+    &:hover {
+
+      &:before {
+        width: 50%;
+      }
+      
+      &:after {
+        width: 50%;
+      }
+    }
+
+    @include bp-xxlarge {
+      font-size: $base-font-size;
+    }
+    
+    @include bp-xxlarge {
+      font-size: 30px;
+    }
+  }
+}
+
+.menu--social {
+  border-top: solid 1px $white;
+  bottom: 25px;
+  left: 25px;
+  padding: 1rem 0 0;
+  right: auto;
+  top: auto;
+  z-index: 9;
+
+  li {
+    display: inline-block;
+    margin: 0;
+    padding: 0 .5rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  a {
+    font-size: 16px;
+    text-transform: lowercase;
+  }
+
+  @include bp-large {
+    li {
+      padding: 0 1rem;
+    }
+  }
+
+  @include bp-large {
+    left: 90px;
+
+    li {
+      padding: 0 1.5rem;
+    }
+
+    a {
+      font-size: $base-font-size;
+    }
+  }
+}
