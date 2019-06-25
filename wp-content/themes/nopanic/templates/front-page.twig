@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="front-wrapper" {% if post.thumbnail.src %}style="background-image: url({{ post.thumbnail.src }})"{% endif %}>
+		<div class="front-wrapper__inner">
+			{{ post.content }}
+		</div>
+		
+		{% if post.get_field('video') %}
+			<div class="front-video">
+				<video playsinline autoplay muted loop preload class="front-video__video">
+					<source src="{{ post.get_field('video') }}" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		{% endif %}
+
+		<div class="front-wrapper__hover">
+			<h4>Some text</h4>
+			<img id="frontImage">
+		</div>
+	</div>
+{% endblock %}
