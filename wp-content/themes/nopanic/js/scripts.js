@@ -123,4 +123,28 @@ jQuery( document ).ready(function( $ ) {
   $('.something').mouseout(function() {
     $('.front-wrapper__hover').removeClass('is-showing');
   });
+
+  // change color on click
+  // rotate something images on hover
+  var color = ['is-red','is-pink','is-white','is-black','is-blue','is-dark-blue'];
+
+  function changeColor() {
+    var index = Math.floor(Math.random() * color.length);
+    return color[index];
+  }
+
+  // change page color
+  $('.page-animate').on('click',function() {
+    $(this).removeClass('is-pink is-red is-white is-black is-blue is-dark-blue');
+
+    var change = changeColor();
+    $(this).addClass(change);
+  });
+
+  $('.paroller, [data-paroller-factor]').paroller({
+    factor: 0.05, 
+    type: 'foreground', 
+    direction: 'vertical', // vertical, horizontal
+    transition: 'transform .1s ease-in-out'
+  });
 });

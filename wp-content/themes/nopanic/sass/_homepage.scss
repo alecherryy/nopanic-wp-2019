@@ -130,7 +130,7 @@
   position: relative;
 
   @include bp-medium {
-    padding-left: 90px;
+    padding-left: 75px;
   }
 
   &:before,
@@ -194,12 +194,22 @@
       content: '';
       background-color: $red;
       bottom: 0;
-      display: block;
       height: 1px;
-      left: 0;
+      left: 50%;
       position: absolute;
+      transition: all .4s ease-in-out;
       width: 0;
-      z-index: 2;
+    }
+    
+    &:after {
+      content: '';
+      background-color: $red;
+      bottom: 0;
+      height: 1px;
+      right: 50%;
+      position: absolute;
+      transition: all .4s ease-in-out;
+      width: 0;
     }
 
     &:hover {
@@ -209,8 +219,9 @@
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: $white;
 
-      &:before {
-        width: 100%;
+      &:before,
+      &:after {
+        width: 50%;
       }
     }
   }
@@ -226,10 +237,10 @@
 }
 
 .front-wrapper__hover {
-  bottom: 90px;
+  bottom: 75px;
   opacity: 0;
   position: absolute;
-  right: 90px;
+  right: 75px;
   transition-delay: all .5s ease-in-out;
   transition: all .8s ease-in-out;
 
@@ -261,7 +272,7 @@
 
   h4 {
     margin-left: -60px;
-    margin-top: -90px;
+    margin-top: -75px;
     text-transform: uppercase;
     transform: translateX(-5px) translateY(-5px);
     transition-delay: all .5s ease-in-out;
@@ -276,34 +287,6 @@
     transition-delay: all .5s ease-in-out;
     transition: all .8s ease-in-out;
   }
-}
-
-#noPanicLogo {
-  bottom: 45px;
-  position: absolute;
-  right: 25px;
-  z-index: 9;
-  width: 300px;
-
-  @include bp-large {
-    bottom: 65px;
-    right: 90px;
-    width: 450px;
-  }
-
-  @include bp-xlarge {
-    bottom: 0;
-    right: 90px;
-  }
-}
-
-#nopanicText {
-  animation: rotate-text;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  transform-origin: center;
 }
 
 @keyframes rotate-text {

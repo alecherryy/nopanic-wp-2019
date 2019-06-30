@@ -1,0 +1,99 @@
+.icon {
+  border: 0;
+  padding: 1rem;
+
+  @include bp-xxlarge {
+    padding: 1.5rem 3rem 2.5rem;
+    max-width: 100%;
+  }
+
+  .line {
+    fill: none;
+    stroke: $white;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    
+  }
+  
+  .line {
+    animation: svg-dash 4s ease-in-out forwards;
+  }
+
+  &.who-ideas {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-left: 1rem;
+    text-transform: uppercase;
+
+    @include bp-medium {
+      font-size: 36px;
+    }
+
+    @include bp-xxlarge {
+      margin-left: 3rem;
+    }
+  }
+
+  ul {
+    font: {
+      family: $base-font-family;
+      size: 24px;
+    }
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    @include bp-medium {
+      font: {
+        size: 24px;
+      }
+    }
+
+    @include bp-xxlarge {
+      font: {
+        size: $font-size-md;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 5 {
+  .icon:nth-child(#{$i}n) {
+    .line {
+      animation-delay: #{$i * .2}s;
+    }
+  }
+}
+
+@keyframes svg-dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.icon__top {
+  display: flex;
+  align-items: center;
+  margin: 0 0 2rem;
+
+  @include bp-medium {
+    margin: 0;
+  }
+}

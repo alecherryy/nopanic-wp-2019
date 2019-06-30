@@ -1,0 +1,154 @@
+.who-wrapper {
+  padding: 0 25px;
+  
+  h1,
+  h2 {
+    font-family: $accent-font-family;
+    font-size: $font-size-lg;
+    text-transform: uppercase;
+  }
+
+  @include bp-large {
+    padding: 45px 75px;
+
+    h1,
+    h2 {
+      font-size: $font-size-xxxl;
+    }
+  }
+
+  img {
+    margin: 0 0 2rem;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  @include bp-medium {
+    p {
+      font-size: 30px;
+      max-width: 70%;
+    }
+  }
+
+  @include bp-large {
+    p {
+      font-size: $font-size-lg;
+      max-width: 70%;
+    }
+  }
+  
+  @include bp-xxlarge {
+    p {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+.who-section {
+  border-bottom: solid 1px $white;
+  margin: 0 0 3rem;
+  padding: 0 0 3rem;
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.who-intro__top,
+.who-intro__text,
+.who-team__text,
+.who-what__text {
+  display: flex;
+  margin: 1rem 0 0;
+  
+  @include bp-large {
+    justify-content: flex-end;
+    margin: 2rem 0 0;
+  }
+}
+
+.who-intro__text {
+  position: relative;
+  
+  p {
+    margin-bottom: 40%;
+  }
+}
+
+.who-intro__logo {
+  bottom: -20%;
+  right: 0;
+  max-width: 70%;
+  margin: 0;
+  opacity: .3;
+  position: absolute;
+
+  &.is-black,
+  &.is-red {
+    display: none;
+  }
+
+  @include bp-large {
+    bottom: 0;
+    left: 0;
+    max-width: 60%;
+    right: auto;
+  }
+  
+  @include bp-xxlarge {
+    max-width: 100%;
+  }
+}
+
+.who-grid {
+  margin: 2rem 0;
+  border-color: $white;
+  
+  @include bp-medium {
+    display: grid;
+    border-bottom: solid 1px;
+    grid-template-columns: repeat(2, minmax(375px, 1fr));
+  }
+
+  @include bp-xlarge {
+    grid-template-columns: repeat(3, minmax(375px, 1fr));
+  }
+
+  @include bp-xxlarge {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include bp-medium {
+    > * {
+      border-top: solid 1px;
+      border-right: solid 1px;
+      margin: 0;
+      width: auto;
+
+      &:nth-child(2),
+      &:nth-child(4),
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  @include bp-xlarge {
+    > * {
+      border-top: solid 1px;
+      border-right: solid 1px;
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        border-right: solid 1px;
+      }
+
+      &:nth-child(3),
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
