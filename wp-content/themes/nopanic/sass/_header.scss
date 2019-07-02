@@ -1,20 +1,62 @@
+.header {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 15;
+
+  &:hover {
+    .header-wrapper {
+      &:before {
+        height: 100%;
+        opacity: 1;
+      }
+    }
+  }
+  
+  .home & {
+    &:hover {
+      .header-wrapper {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.header-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  position: relative;
+  
+  @include bp-large {
+    padding: 0 75px;
+  }
+
+  &:before {
+    content: '';
+    background-color: $black;
+    border-bottom: solid 1px $white;
+    position: absolute;
+    height: 50%;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    transition: all .4s ease-in-out;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
 .site-logo {
   color: $white;
   font-size: $base-font-size;
-  left: 25px;
-  margin: 0;
-  mix-blend-mode: difference;
-  position: fixed;
-  top: 25px;
-  z-index: 9;
 
-  @include bp-large {
-    left: 90px;
-  }
-
-  @include bp-xxlarge {
+  @include bp-xlarge {
     font-size: 36px;
-    max-width: 50%;
   }
 }
 
@@ -30,10 +72,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  position: fixed;
-  right: 25px;
-  top: 25px;
-  z-index: 9;
 
   &.menu--main {
 
@@ -45,9 +83,6 @@
   }
 
   @include bp-large {
-    display: block;
-    right: 90px;
-
     li {
       display: inline-block;
       margin: 0;
@@ -59,7 +94,7 @@
     margin: 0;
     padding: 0 .5rem;
 
-    @include bp-xxlarge {
+    @include bp-xlarge {
       padding: 0 .75rem;
     }
 
@@ -106,56 +141,9 @@
         width: 50%;
       }
     }
-
-    @include bp-xxlarge {
-      font-size: $base-font-size;
-    }
     
-    @include bp-xxlarge {
+    @include bp-xlarge {
       font-size: 30px;
-    }
-  }
-}
-
-.menu--social {
-  border-top: solid 1px $white;
-  bottom: 25px;
-  left: 25px;
-  padding: 1rem 0 0;
-  right: auto;
-  top: auto;
-  z-index: 9;
-
-  li {
-    display: inline-block;
-    margin: 0;
-    padding: 0 .5rem;
-
-    &:first-child {
-      padding-left: 0;
-    }
-  }
-
-  a {
-    font-size: 16px;
-    text-transform: lowercase;
-  }
-
-  @include bp-large {
-    li {
-      padding: 0 1rem;
-    }
-  }
-
-  @include bp-large {
-    left: 90px;
-
-    li {
-      padding: 0 1.5rem;
-    }
-
-    a {
-      font-size: $base-font-size;
     }
   }
 }

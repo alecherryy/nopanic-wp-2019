@@ -6,21 +6,21 @@
 	</head>
 {% endblock %}
 
-	<body class="{{body_class}}" data-template="base.twig">
-		<span class='cursor'></span>
-		{# <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a> #}
-		<div class="front-intro front-intro--red">
-				<h1 class="is-in">No panic</h1>
-				<a class="front-intro-link front-intro-link--red" href="#">View more</a>
-		</div>
-		<div class="front-intro front-intro--white">
-			<h1>Do it just</h1>
-			<a class="front-intro-link front-intro-link--white" href="#">View more</a>
+	<body class="{{ body_class }} {% if fn('is_page', 'who') %}page-animate{% endif %}" data-template="base.twig">
+		{% if fn('is_front_page') %}
+			<div class="front-intro front-intro--red">
+					<h1 class="is-in">No panic</h1>
+					<a class="front-intro-link front-intro-link--red" href="#">View more</a>
 			</div>
-		</div>
+			<div class="front-intro front-intro--white">
+				<h1>Do it just</h1>
+				<a class="front-intro-link front-intro-link--white" href="#">View more</a>
+				</div>
+			</div>
+		{% endif %}
 		<header class="header" >
 			{% block header %}
-				<div class="wrapper">
+				<div class="header-wrapper">
 					<h1 class="site-logo" role="banner">
 						<a class="site-logo-link" href="{{ site.url }}" rel="home">{{ site.name }}</a>
 					</h1>
@@ -47,7 +47,7 @@
 		</section>
 
 		{% block footer %}
-			{% if fn('is_front_page') %}
+			<footer class="site-footer">
 				{% if social_menu.items %}
 				<ul class="menu menu--social">
 					{% for item in social_menu.items %}
@@ -123,8 +123,8 @@
 						</g>
 					</svg>
 				{# </div> #}
-			{% endif %}
 			{{ function('wp_footer') }}
+			</footer>
 		{% endblock %}
 	</body>
 </html>

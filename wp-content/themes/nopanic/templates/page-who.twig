@@ -1,0 +1,55 @@
+{% extends "base.twig" %}
+
+{% set who = post.get_field('who') %}
+{% set team = post.get_field('team') %}
+{% set what = post.get_field('what') %}
+{% block content %}
+	<div class="who-wrapper">
+		<h1>{{ post.title }}</h1>
+
+		<div class="who-section">
+			<div class="who-intro__top">
+				<p data-paroller-factor="0.05">{{ who.introduzione }}</p>
+			</div>
+			<img src="{{ who.immagine }}" alt="{{ post.immagine.alt }}" class="who-image-scroll">
+			<div class="who-intro__text">
+				<p>{{ who.testo }}</p>
+				<img class="who-intro__logo" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="-0.1">
+				<img class="who-intro__logo is-black" src="/wp-content/themes/nopanic/images/who-logo-black.svg" data-paroller-factor="-0.1">
+				<img class="who-intro__logo is-red" src="/wp-content/themes/nopanic/images/who-logo-red.svg" data-paroller-factor="-0.1">
+			</div>
+		</div>
+		<div class="who-section">
+			<h2>Team</h2>
+			<img src="{{ team.team_immagine }}" alt="{{ post.immagine.alt }}" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="0.05">
+			<div class="who-team__text">
+				<p data-paroller-factor="-0.05">{{ team.testo }}</p>
+			</div>
+		</div>
+		<div class="who-section" style="border:none;">
+			<h2>What</h2>
+			<div class="who-what__text">
+				<p class="paroller" data-paroller-factor="0.05">{{ what.testo }}</p>
+			</div>
+			<div class="who-grid">
+				{% include 'partial/branding.twig' %}
+				{% include 'partial/visual.twig' %}
+				{% include 'partial/content.twig' %}
+				{% include 'partial/training.twig' %}
+				{% include 'partial/digital.twig' %}
+				<div class="icon who-ideas">
+					<h3><a href="{{ site.url }}/contact">Got ideas?</a></h3>
+				</div>
+			</div>
+		</div>
+		
+		<div class="who-section">
+			<h2>Clients</h2>
+			<div class="who-grid">
+				{% for item in clients %}
+
+				{% endfor %}
+			</div>
+		</div>
+	</div><!-- /content-wrapper -->
+{% endblock %}

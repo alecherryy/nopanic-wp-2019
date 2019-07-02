@@ -13,10 +13,339 @@ body {
   overflow-x: hidden;
   padding: 0;
   word-wrap: break-word;
+  transition: background-color .4s ease-in-out;
 
   // &.no-scroll {
   //   overflow-y: hidden;
   // } 
+
+  &.is-white {
+    background-color: $white;
+    color: $black;
+
+    .header-wrapper {
+      &:before {
+        background-color: $white;
+        border-color: $black;
+      }
+    }
+
+    .menu--main {
+      a {
+        color: $black;
+      }
+    }
+
+    .who-intro__logo {
+      display: none;
+  
+      &.is-black {
+        display: block;
+      }
+    }
+  
+    .who-grid,
+    .who-section {
+      border-color: $black;
+    }
+  
+    .icon {
+      .line {
+        stroke: $black;
+      }  
+    }
+    
+    .who-ideas {
+      a {
+        color: $black;
+      }
+    }
+
+    footer {
+      .cls-1 {
+        stroke: $black;
+      }
+      
+      .cls-2 {
+        fill: $black;
+      }
+
+      .menu--social {
+        border-color: $black;
+        
+        a {
+          color: $black;
+        }
+      }
+    }
+  }
+  
+  &.is-blue {
+    background-color: #6CC0BA;
+    color: $black;
+
+    .header-wrapper {
+      &:before {
+        background-color: #6CC0BA;
+        border-color: $black;
+      }
+    }
+
+    .menu--main {
+      a {
+        color: $black;
+
+        &:before,
+        &:after {
+          background-color: $white;
+        }
+      }
+    }
+
+    .who-intro__logo {
+      display: none;
+  
+      &.is-black {
+        display: block;
+      }
+    }
+  
+    .who-grid,
+    .who-section {
+      border-color: $black;
+    }
+  
+    .icon {
+      .line {
+        stroke: $black;
+      }  
+    }
+    
+    .who-ideas {
+      a {
+        color: $black;
+      }
+    }
+
+    footer {
+      .cls-1 {
+        stroke: $black;
+      }
+      
+      .cls-2 {
+        fill: $black;
+      }
+
+      .menu--social {
+        border-color: $black;
+
+        a {
+          color: $black;
+
+          &:before,
+          &:after {
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+  
+  &.is-dark-blue {
+    background-color: #007D92;
+    color: $white;
+
+    .header-wrapper {
+      &:before {
+        background-color: #007D92;
+      }
+    }
+
+    .menu--main {
+      a {
+        color: $white;
+
+        &:before,
+        &:after {
+          background-color: #6CC0BA;
+        }
+      }
+    }
+  
+    .who-grid,
+    .who-section {
+      border-color: $white;
+    }
+  
+    .icon {
+      .line {
+        stroke: $white;
+      }  
+    }
+    
+    .who-ideas {
+      a {
+        color: $white;
+      }
+    }
+
+    footer {
+      .cls-1 {
+        stroke: $white;
+      }
+      
+      .cls-2 {
+        fill: $white;
+      }
+
+      .menu--social {
+        border-color: $white;
+
+        a {
+          color: $white;
+
+          &:before,
+          &:after {
+            background-color: #6CC0BA;
+          }
+        }
+      }
+    }
+  }
+  
+  &.is-red {
+    background-color: $red;
+    color: $white;
+
+    .header-wrapper {
+      &:before {
+        background-color: $red;
+        border-color: $white;
+      }
+    }
+
+    .menu--main {
+      a {
+        color: $white;
+
+        &:before,
+        &:after {
+          background-color: $black;
+        }
+      }
+    }
+  
+    .who-grid,
+    .who-section {
+      border-color: $white;
+    }
+  
+    .icon {
+      .line {
+        stroke: $white;
+      }  
+    }
+    
+    .who-ideas {
+      a {
+        color: $white;
+      }
+    }
+
+    footer {
+      .cls-1 {
+        stroke: $white;
+      }
+      
+      .cls-2 {
+        fill: $white;
+      }
+
+      .menu--social {
+        border-color: $white;
+
+        a {
+          color: $white;
+
+          &:before,
+          &:after {
+            background-color: $black;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-pink {
+    background-color: $black;
+    color: $red;
+
+    .header-wrapper {
+      &:before {
+        background-color: $black;
+        border-color: $red;
+      }
+    }
+
+    .menu--main {
+      a {
+        color: $red;
+
+        &:before,
+        &:after {
+          background-color: $white;
+        }
+      }
+    }
+  
+    .who-grid,
+    .who-section {
+      border-color: $red;
+    }
+    
+    .who-intro__logo {
+      display: none;
+  
+      &.is-red {
+        display: block;
+      }
+    }
+
+    .icon {
+      .line {
+        stroke: $red;
+      }  
+    }
+    
+    .who-ideas {
+      a {
+        color: $red;
+      }
+    }
+
+    footer {
+      .cls-1 {
+        stroke: $red;
+      }
+      
+      .cls-2 {
+        fill: $red;
+      }
+
+      .menu--social {
+        border-color: $red;
+
+        a {
+          color: $red;
+
+          &:before,
+          &:after {
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
 }
 
 .page-js {
@@ -34,7 +363,6 @@ body {
 
 %hN {
   @extend %base-font-family !optional;
-  color: $white;
   hyphens: none;
   line-height: 1.3;
   margin: 0 0 rem($vertical-spacing);
@@ -60,7 +388,7 @@ h1,
   font-weight: 700;
   margin-bottom: 0.5em;
 
-  @include bp-medium {
+  @include bp-xxlarge {
     font-size: $font-size-h1;
   }
 
@@ -76,7 +404,7 @@ h2,
   font-size: $font-size-h3;
   font-weight: 700;
 
-  @include bp-medium {
+  @include bp-xxlarge {
     font-size: $font-size-h2;
   }
 }
@@ -87,7 +415,7 @@ h3,
   font-size: $font-size-lg;
   font-weight: 700;
 
-  @include bp-medium {
+  @include bp-xxlarge {
     font-size: $font-size-h3;
   }
 }
@@ -98,7 +426,7 @@ h4,
   font-size: $font-size-h5;
   font-weight: 400;
 
-  @include bp-medium {
+  @include bp-xxlarge {
     font-size: $font-size-h4;
   }
 }
@@ -109,7 +437,7 @@ h5,
   font-size: $font-size-h6;
   font-weight: 700;
 
-  @include bp-medium {
+  @include bp-xxlarge {
     font-size: $font-size-h5;
   }
 }
