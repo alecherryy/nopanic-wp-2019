@@ -16,10 +16,9 @@
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     
-  }
-  
-  .line {
-    animation: svg-dash 4s ease-in-out forwards;
+    &.is-animate {
+      animation: svg-dash 4s ease-in-out forwards;
+    }
   }
 
   &.who-ideas {

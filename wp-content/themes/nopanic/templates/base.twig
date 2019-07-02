@@ -7,7 +7,7 @@
 {% endblock %}
 
 	<body class="{{ body_class }} {% if fn('is_page', 'who') %}page-animate{% endif %}" data-template="base.twig">
-		{# {% if fn('is_front_page') %}
+		{% if fn('is_front_page') %}
 			<div class="front-intro front-intro--red">
 					<h1 class="is-in">No panic</h1>
 					<a class="front-intro-link front-intro-link--red" href="#">View more</a>
@@ -17,7 +17,7 @@
 				<a class="front-intro-link front-intro-link--white" href="#">View more</a>
 				</div>
 			</div>
-		{% endif %} #}
+		{% endif %}
 		<header class="header" >
 			{% block header %}
 				<div class="header-wrapper">

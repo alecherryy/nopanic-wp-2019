@@ -22,7 +22,7 @@
   background-color: $red;
   transition-delay: .4s;
   transition: all .4s ease-in-out;
-  z-index: 15;
+  z-index: 20;
 
   h1 {
     color: $white;
@@ -43,7 +43,7 @@
 
 .front-intro--white {
   background-color: $white;
-  z-index: 14;
+  z-index: 19;
 
   h1 {
     color: $black;

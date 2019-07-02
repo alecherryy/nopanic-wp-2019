@@ -21,6 +21,15 @@
     margin: 0 0 2rem;
   }
 
+  .who-image-scroll {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+
+    &.opacity {
+      opacity: 1;
+    }
+  }
+
   p {
     font-size: 24px;
   }

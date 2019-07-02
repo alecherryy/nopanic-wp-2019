@@ -9,21 +9,21 @@
 
 		<div class="who-section">
 			<div class="who-intro__top">
-				<p>{{ who.introduzione }}</p>
+				<p data-paroller-factor="0.05">{{ who.introduzione }}</p>
 			</div>
-			<img src="{{ who.immagine }}" alt="{{ post.immagine.alt }}" class="paroller" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="0.05">
+			<img src="{{ who.immagine }}" alt="{{ post.immagine.alt }}" class="who-image-scroll">
 			<div class="who-intro__text">
 				<p>{{ who.testo }}</p>
 				<img class="who-intro__logo" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="-0.1">
-				<img class="who-intro__logo is-black" src="/wp-content/themes/nopanic/images/who-logo-black.svg">
-				<img class="who-intro__logo is-red" src="/wp-content/themes/nopanic/images/who-logo-red.svg">
+				<img class="who-intro__logo is-black" src="/wp-content/themes/nopanic/images/who-logo-black.svg" data-paroller-factor="-0.1">
+				<img class="who-intro__logo is-red" src="/wp-content/themes/nopanic/images/who-logo-red.svg" data-paroller-factor="-0.1">
 			</div>
 		</div>
 		<div class="who-section">
 			<h2>Team</h2>
 			<img src="{{ team.team_immagine }}" alt="{{ post.immagine.alt }}" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="0.05">
 			<div class="who-team__text">
-				<p>{{ team.testo }}</p>
+				<p data-paroller-factor="-0.05">{{ team.testo }}</p>
 			</div>
 		</div>
 		<div class="who-section" style="border:none;">

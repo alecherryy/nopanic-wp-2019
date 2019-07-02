@@ -26,7 +26,7 @@ jQuery( document ).ready(function( $ ) {
     $(this).find('h1').addClass('is-out');
     $('.front-intro--red').css({
       'opacity':'0',
-      'z-index':'14'
+      'z-index':'19'
     });
     $('.front-intro--white').find('h1').addClass('is-in');
   });
@@ -36,17 +36,9 @@ jQuery( document ).ready(function( $ ) {
 
     $('.front-intro--white').slideUp();
     $('.front-intro--red').css('z-index','-1');
+    $('.menu--social').addClass('fadeInUp');
   });
   
-  $('.site-logo').mouseover(function() {
-    // $('body').css('cursor', 'none');
-    $('.cursor').addClass('is-in');
-  });
-
-  $('.site-logo').mouseout(function() {
-    // $('body').css('cursor', 'default');
-    $('.cursor').removeClass('is-in');
-  });
 
   // rotate about images on hover
   var about = ["wp-content/themes/nopanic/images/about/image1.jpg", "wp-content/themes/nopanic/images/about/image2.jpg","wp-content/themes/nopanic/images/about/image3.jpg","wp-content/themes/nopanic/images/about/image4.jpg"];
@@ -124,27 +116,35 @@ jQuery( document ).ready(function( $ ) {
     $('.front-wrapper__hover').removeClass('is-showing');
   });
 
-  // change color on click
-  // rotate something images on hover
-  var color = ['is-red','is-pink','is-white','is-black','is-blue','is-dark-blue'];
-
-  function changeColor() {
-    var index = Math.floor(Math.random() * color.length);
-    return color[index];
-  }
-
   // change page color
+  var color = ['is-red','is-pink','is-white','is-black','is-blue','is-dark-blue'];
+  var current = 0;
+  
   $('.page-animate').on('click',function() {
+    
     $(this).removeClass('is-pink is-red is-white is-black is-blue is-dark-blue');
-
-    var change = changeColor();
-    $(this).addClass(change);
+    current++; // add one to click count
+    current %= color.length; // if count is larger than length of array use modulus to return to beginning
+    $(this).addClass(color[current]);
   });
 
+  // parallax effect
   $('.paroller, [data-paroller-factor]').paroller({
     factor: 0.05, 
     type: 'foreground', 
     direction: 'vertical', // vertical, horizontal
     transition: 'transform .1s ease-in-out'
   });
+
+  //scroll magic 
+  var controller = new ScrollMagic.Controller();
+  var scene = new ScrollMagic.Scene({triggerElement: ".who-image-scroll"})
+  // trigger animation by adding a css class
+  .setClassToggle(".who-image-scroll", "opacity")
+  .addTo(controller);
+
+  var scene = new ScrollMagic.Scene({triggerElement: ".who-grid"})
+  // trigger animation by adding a css class
+  .setClassToggle(".line", "is-animated")
+  .addTo(controller);
 });
