@@ -4053,7 +4053,7 @@ footer {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
 }
-.icon .line {
+.icon .line.is-animate {
   -webkit-animation: svg-dash 4s ease-in-out forwards;
           animation: svg-dash 4s ease-in-out forwards;
 }
