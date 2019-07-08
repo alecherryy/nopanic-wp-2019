@@ -117,7 +117,7 @@ jQuery( document ).ready(function( $ ) {
   });
 
   // change page color
-  var color = ['is-red','is-pink','is-white','is-black','is-blue','is-dark-blue'];
+  var color = ['is-black', 'is-blue','is-red', 'is-pink','is-dark-blue','is-white'];
   var current = 0;
   
   $('.page-animate').on('click',function() {
@@ -136,15 +136,23 @@ jQuery( document ).ready(function( $ ) {
     transition: 'transform .1s ease-in-out'
   });
 
-  //scroll magic 
-  var controller = new ScrollMagic.Controller();
-  var scene = new ScrollMagic.Scene({triggerElement: ".who-image-scroll"})
-  // trigger animation by adding a css class
-  .setClassToggle(".who-image-scroll", "opacity")
-  .addTo(controller);
+  // svg icons animate
+  $(window).scroll(function() {
+    var top_of_element = $('.icon').offset().top;
+    var bottom_of_element = $('.icon').offset().top + $('.icon').outerHeight();
+    var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
+    var top_of_screen = $(window).scrollTop();
 
-  var scene = new ScrollMagic.Scene({triggerElement: ".who-grid"})
-  // trigger animation by adding a css class
-  .setClassToggle(".line", "is-animated")
-  .addTo(controller);
+    if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+      $('.icon').addClass('is-animated');
+    }
+  });
+
+  // reveal on scroll
+  AOS.init({
+    startEvent: 'DOMContentLoaded',
+    duration: 1000, // values from 0 to 3000, with step 50ms
+    easing: 'ease-in-out-cubic',
+    mirror: true
+  });
 });

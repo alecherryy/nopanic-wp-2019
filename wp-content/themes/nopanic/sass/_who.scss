@@ -21,15 +21,6 @@
     margin: 0 0 2rem;
   }
 
-  .who-image-scroll {
-    opacity: 0;
-    transition: all 1s ease-in-out;
-
-    &.opacity {
-      opacity: 1;
-    }
-  }
-
   p {
     font-size: 24px;
   }
@@ -115,6 +106,23 @@
   margin: 2rem 0;
   border-color: $white;
   
+  &.who-grid--team {
+    border: 0;
+    margin: 4rem 0 0;
+    
+    > * {
+      border-top: 0;
+      border-right: 0;
+      margin: 0 1rem 2rem 0;
+
+      &:nth-child(2),
+      &:nth-child(4),
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+
   @include bp-medium {
     display: grid;
     border-bottom: solid 1px;
@@ -158,6 +166,57 @@
       &:last-child {
         border-right: 0;
       }
+    }
+  }
+}
+
+.who-logos {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  img {
+    margin: 6rem 0;
+  }
+
+  .is-black,
+  .is-red {
+    display: none;
+  }
+
+  .is-black &,
+  .is-red &,
+  .is-dark-blue & {
+    .is-white {
+      display: block;
+    }
+
+    .is-black,
+    .is-red {
+      display: none;
+    }
+  }
+  
+  .is-blue &,
+  .is-white & {
+    .is-black {
+      display: block;
+    }
+
+    .is-white,
+    .is-red {
+      display: none;
+    }
+  }
+  
+  .is-pink & {
+    .is-red {
+      display: block;
+    }
+
+    .is-white,
+    .is-black {
+      display: none;
     }
   }
 }
