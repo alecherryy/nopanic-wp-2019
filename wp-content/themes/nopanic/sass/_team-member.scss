@@ -1,0 +1,111 @@
+.who-member {
+  h4,
+  p {
+    margin: 0;
+  }
+
+  .who-wrapper & {
+    img {
+      margin: 0;
+    }
+    p {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+.who-member__image {
+  height: 80%;
+  max-width: 500px;
+
+  img {
+    display: block;
+    object-fit: cover;
+
+    &:last-child {
+      display: none;
+    }
+  }
+
+  &:hover {
+    img {
+      display: none;
+  
+      &:last-child {
+        display: block;
+      }
+    }
+  }
+}
+
+.who-plus {
+  background-color: $red;
+  display: block;
+  height: 100%;
+  position: relative;
+  transition: background-color 0.4s ease-in-out;
+  width: 100%;
+
+  .is-black &,
+  .is-pink & {
+    background-color: $red;
+  }
+  
+  .is-blue &,
+  .is-white & {
+    background-color: $black;
+  }
+  
+  .is-dark-blue &,
+  .is-red & {
+    background-color: $white;
+  }
+
+  span {
+    background-color: $black;
+    display: block;
+    position: absolute;
+
+    .is-blue & {
+      background-color: #6CC0BA;
+    }
+  }
+
+  .middle {
+    height: 3px;
+    left: calc((100% - 152px)/2);
+    top: calc((100% - 4px)/2);
+    width: 152px;
+  }
+
+  .top,
+  .bottom {
+    height: 76px;
+    left: calc((100% - 4px)/2);
+    width: 4px;
+  }
+
+  .top {
+    top: calc(50% - 76px);
+  }
+  
+  .bottom {
+    bottom: calc(50% - 76px);
+  }
+
+  &:hover {
+    
+  }
+}
+
+@for $i from 1 through 10 {
+  .who-member:nth-child(#{$i}n) {
+    transition-delay: #{$i * .2}s;
+  }
+
+  .who-logos:nth-child(#{$i}n) {
+    img {
+      transition-delay: #{$i * .2}s;
+    }
+  }
+}

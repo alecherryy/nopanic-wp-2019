@@ -3,6 +3,7 @@
 {% set who = post.get_field('who') %}
 {% set team = post.get_field('team') %}
 {% set what = post.get_field('what') %}
+{% set clients = post.get_field('clients') %}
 {% block content %}
 	<div class="who-wrapper">
 		<h1>{{ post.title }}</h1>
@@ -11,19 +12,39 @@
 			<div class="who-intro__top">
 				<p data-paroller-factor="0.05">{{ who.introduzione }}</p>
 			</div>
-			<img src="{{ who.immagine }}" alt="{{ post.immagine.alt }}" class="who-image-scroll">
+			<img src="{{ who.immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-up">
 			<div class="who-intro__text">
 				<p>{{ who.testo }}</p>
-				<img class="who-intro__logo" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="-0.1">
-				<img class="who-intro__logo is-black" src="/wp-content/themes/nopanic/images/who-logo-black.svg" data-paroller-factor="-0.1">
-				<img class="who-intro__logo is-red" src="/wp-content/themes/nopanic/images/who-logo-red.svg" data-paroller-factor="-0.1">
+				<img class="who-intro__logo" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="-0.05">
+				<img class="who-intro__logo is-black" src="/wp-content/themes/nopanic/images/who-logo-black.svg" data-paroller-factor="-0.05">
+				<img class="who-intro__logo is-red" src="/wp-content/themes/nopanic/images/who-logo-red.svg" data-paroller-factor="-0.05">
 			</div>
 		</div>
 		<div class="who-section">
 			<h2>Team</h2>
-			<img src="{{ team.team_immagine }}" alt="{{ post.immagine.alt }}" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="0.05">
+			<img src="{{ team.team_immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-up">
 			<div class="who-team__text">
 				<p data-paroller-factor="-0.05">{{ team.testo }}</p>
+			</div>
+			<div class="who-grid who-grid--team">
+			{% set team_member = team.team_member %}
+			{% for item in team_member %}
+				{% include 'partial/team_member.twig' with {
+					image: item.immagine,
+					hover: item.immagine_hover,
+					name: item.name,
+					role: item.role
+				} %}
+			{% endfor %}
+				<div class="who-member">
+					<div class="who-member__image">
+						<a class="who-plus" href="{{ site.url }}/contact">
+							<span class="top"></span>
+							<span class="middle"></span>
+							<span class="bottom"></span>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="who-section" style="border:none;">
@@ -46,8 +67,13 @@
 		<div class="who-section">
 			<h2>Clients</h2>
 			<div class="who-grid">
-				{% for item in clients %}
-
+				{% set logos = clients.logos %}
+				{% for item in logos %}
+					<div class="who-logos">
+						<img class="is-white" src="{{ item.white }}" data-aos="fade-up">
+						<img class="is-black" src="{{ item.black }}" data-aos="fade-up">
+						<img class="is-red" src="{{ item.coral }}" data-aos="fade-up">
+					</div>
 				{% endfor %}
 			</div>
 		</div>
