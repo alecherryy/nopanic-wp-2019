@@ -7,6 +7,12 @@
     max-width: 100%;
   }
 
+  &.is-animated {
+    .line {
+      animation: svg-dash 4s ease-in-out forwards;
+    }
+  }
+  
   .line {
     fill: none;
     stroke: $white;
@@ -15,10 +21,6 @@
     stroke-width: 2px;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    
-    &.is-animate {
-      animation: svg-dash 4s ease-in-out forwards;
-    }
   }
 
   &.who-ideas {
@@ -73,6 +75,16 @@
   }
 }
 
+.icon__top {
+  display: flex;
+  align-items: center;
+  margin: 0 0 2rem;
+
+  @include bp-medium {
+    margin: 0;
+  }
+}
+
 @for $i from 1 through 5 {
   .icon:nth-child(#{$i}n) {
     .line {
@@ -84,15 +96,5 @@
 @keyframes svg-dash {
   to {
     stroke-dashoffset: 0;
-  }
-}
-
-.icon__top {
-  display: flex;
-  align-items: center;
-  margin: 0 0 2rem;
-
-  @include bp-medium {
-    margin: 0;
   }
 }
