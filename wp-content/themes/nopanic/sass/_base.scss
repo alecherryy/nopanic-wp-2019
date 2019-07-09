@@ -30,12 +30,6 @@ body {
       }
     }
 
-    .menu--main {
-      a {
-        color: $black;
-      }
-    }
-
     .who-intro__logo {
       display: none;
   
@@ -45,7 +39,8 @@ body {
     }
   
     .who-grid,
-    .who-section {
+    .who-section,
+    .contact-section {
       border-color: $black;
     }
   
@@ -53,12 +48,6 @@ body {
       .line {
         stroke: $black;
       }  
-    }
-    
-    .who-ideas {
-      a {
-        color: $black;
-      }
     }
 
     footer {
@@ -72,10 +61,6 @@ body {
 
       .menu--social {
         border-color: $black;
-        
-        a {
-          color: $black;
-        }
       }
     }
   }
@@ -91,17 +76,6 @@ body {
       }
     }
 
-    .menu--main {
-      a {
-        color: $black;
-
-        &:before,
-        &:after {
-          background-color: $white;
-        }
-      }
-    }
-
     .who-intro__logo {
       display: none;
   
@@ -111,7 +85,8 @@ body {
     }
   
     .who-grid,
-    .who-section {
+    .who-section,
+    .contact-section {
       border-color: $black;
     }
   
@@ -119,12 +94,6 @@ body {
       .line {
         stroke: $black;
       }  
-    }
-    
-    .who-ideas {
-      a {
-        color: $black;
-      }
     }
 
     footer {
@@ -160,20 +129,10 @@ body {
         background-color: #007D92;
       }
     }
-
-    .menu--main {
-      a {
-        color: $white;
-
-        &:before,
-        &:after {
-          background-color: #6CC0BA;
-        }
-      }
-    }
   
     .who-grid,
-    .who-section {
+    .who-section,
+    .contact-section {
       border-color: $white;
     }
   
@@ -181,12 +140,6 @@ body {
       .line {
         stroke: $white;
       }  
-    }
-    
-    .who-ideas {
-      a {
-        color: $white;
-      }
     }
 
     footer {
@@ -223,20 +176,10 @@ body {
         border-color: $white;
       }
     }
-
-    .menu--main {
-      a {
-        color: $white;
-
-        &:before,
-        &:after {
-          background-color: $black;
-        }
-      }
-    }
   
     .who-grid,
-    .who-section {
+    .who-section,
+    .contact-section {
       border-color: $white;
     }
   
@@ -246,12 +189,6 @@ body {
       }  
     }
     
-    .who-ideas {
-      a {
-        color: $white;
-      }
-    }
-
     footer {
       .cls-1 {
         stroke: $white;
@@ -259,19 +196,6 @@ body {
       
       .cls-2 {
         fill: $white;
-      }
-
-      .menu--social {
-        border-color: $white;
-
-        a {
-          color: $white;
-
-          &:before,
-          &:after {
-            background-color: $black;
-          }
-        }
       }
     }
   }
@@ -286,20 +210,10 @@ body {
         border-color: $red;
       }
     }
-
-    .menu--main {
-      a {
-        color: $red;
-
-        &:before,
-        &:after {
-          background-color: $white;
-        }
-      }
-    }
   
     .who-grid,
-    .who-section {
+    .who-section,
+    .contact-section {
       border-color: $red;
     }
     
@@ -316,12 +230,6 @@ body {
         stroke: $red;
       }  
     }
-    
-    .who-ideas {
-      a {
-        color: $red;
-      }
-    }
 
     footer {
       .cls-1 {
@@ -330,19 +238,6 @@ body {
       
       .cls-2 {
         fill: $red;
-      }
-
-      .menu--social {
-        border-color: $red;
-
-        a {
-          color: $red;
-
-          &:before,
-          &:after {
-            background-color: $white;
-          }
-        }
       }
     }
   }
@@ -481,11 +376,73 @@ a {
     family: $base-font-family;
     weight: 300;
   }
+  position: relative;
   text-decoration: none;
   
+  &:before {
+    content: '';
+    background-color: $red;
+    bottom: 0;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transition: all .4s ease-in-out;
+    width: 0;
+  }
+  
+  &:after {
+    content: '';
+    background-color: $red;
+    bottom: 0;
+    height: 1px;
+    right: 50%;
+    position: absolute;
+    transition: all .4s ease-in-out;
+    width: 0;
+  }
+
   &:hover,
   &:focus {
     text-decoration: none;
+
+    &:after,
+    &:before { 
+      width: 50%;
+    }
+  }
+
+  &:after,
+  &:before {
+    .is-pink & {
+      background-color: $white;
+    }
+    
+    .is-dark-blue & {
+      background-color: #6CC0BA;
+    }
+    
+    .is-red & {
+      background-color: $black;
+    }
+    
+    .is-blue & {
+      background-color: $white;
+    }
+  }
+
+  .is-dark-blue &,
+  .is-black &,
+  .is-red & {
+    color: $white;
+  }
+  
+  .is-blue &,
+  .is-white & {
+    color: $black;
+  }
+  
+  .is-pink & {
+    color: $red;
   }
 }
 

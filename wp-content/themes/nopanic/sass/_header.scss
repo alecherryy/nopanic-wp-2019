@@ -58,6 +58,13 @@
   @include bp-xlarge {
     font-size: 36px;
   }
+
+  .site-logo-link {
+    &:after,
+    &:before {
+      display: none;
+    }
+  }
 }
 
 .nav-main-inner {
@@ -106,33 +113,9 @@
   a {
     display: inline-block;
     padding: 0 .25rem;
-    position: relative;
     text-transform: uppercase;
 
-    &:before {
-      content: '';
-      background-color: $red;
-      bottom: 0;
-      height: 1px;
-      left: 50%;
-      position: absolute;
-      transition: all .4s ease-in-out;
-      width: 0;
-    }
-    
-    &:after {
-      content: '';
-      background-color: $red;
-      bottom: 0;
-      height: 1px;
-      right: 50%;
-      position: absolute;
-      transition: all .4s ease-in-out;
-      width: 0;
-    }
-
     &:hover {
-
       &:before {
         width: 50%;
       }
