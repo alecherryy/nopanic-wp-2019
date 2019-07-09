@@ -71,6 +71,11 @@
   text-shadow: none;
   width: 79px;
   position: relative;
+
+  &:before,
+  &:after {
+    display: none;
+  }
 }
 
 .front-intro-link--red {
