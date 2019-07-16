@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+{% block content %}
+	<div class="contact-wrapper">
+		<h1>{{ post.title }}</h1>
+
+		<div class="contact-section">
+			<div class="contact-intro">
+				<div class="contact-intro__left">
+					<a href="mailto:{{ post.email }}" data-paroller-factor="0.05">{{ post.email }}</a>
+					<address>{{ post.address }}<br>
+						{{ post.city }}
+					</address>
+					{# {{ post.get_field('map') }} #}
+				</div>
+				<div class="contact-intro__right">
+					<ul>
+						{% set links = post.get_field('social_media') %}
+						{% for item in links %}
+						<li><a href="{{ item.link }}" target="_blank">{{ item.text }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="contact-section">
+			<div class="contact-greetings">
+				<p>{{ post.greetings }}</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}
