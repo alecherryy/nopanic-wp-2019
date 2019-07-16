@@ -1,0 +1,115 @@
+.contact-wrapper {
+  padding: 0 25px;
+
+  h1,
+  h2 {
+    font-family: $accent-font-family;
+    font-size: $font-size-lg;
+    text-transform: uppercase;
+  }
+
+  @include bp-large {
+    padding: 45px 75px;
+
+    h1 {
+      font-size: $font-size-xxxl;
+    }
+  }
+
+  @include bp-xlarge {
+    min-height: 100vh;
+  }
+
+  address {
+    font-family: $base-font-family;
+    font-style: normal;
+    margin: 1rem 0 0;
+  }
+
+  a,
+  address {
+    font-size: 24px;
+
+    @include bp-medium {
+      font-size: $font-size-md;;
+    }
+  }
+}
+
+.contact-intro__right {
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+      padding: 0 0 2rem;
+
+      &:last-child {
+        padding: 0;
+      }
+    }
+  }
+
+  a {
+    font-size: $font-size-md;
+
+    @include bp-medium {
+      font-size: $font-size-lg;
+    }
+
+    @include bp-xxlarge {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+.contact-section {
+  border-bottom: solid 1px $white;
+  margin: 0 0 3rem;
+  padding: 0 0 3rem;
+
+  &:last-child {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.contact-intro {
+  
+  @include bp-xlarge {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.contact-greetings {
+  overflow: hidden;
+  text-transform: uppercase;
+  white-space: nowrap;
+  
+  p {
+    animation: banner 25s linear infinite;
+    font: {
+      family: $accent-font-family;
+      size: 110px;
+    }
+    line-height: 1;
+    margin: 0;
+
+    @include bp-large {
+      font-size: 130px;
+    }
+  }
+}
+
+@keyframes banner {
+  0%   { 
+  transform: translateX(100%); 		
+  }
+  100% { 
+  transform: translateX(-150%); 
+  }
+}
