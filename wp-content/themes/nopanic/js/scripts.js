@@ -120,12 +120,15 @@ jQuery( document ).ready(function( $ ) {
   var color = ['is-black', 'is-blue','is-red', 'is-pink','is-dark-blue','is-white'];
   var current = 0;
   $('.page-animate').on('click',function() {
+
     $(this).removeClass('is-pink is-red is-white is-black is-blue is-dark-blue');
     current++; // add one to click count
     current %= color.length; // if count is larger than length of array use modulus to return to beginning
     $(this).addClass(color[current]);
+  });
 
-    console.log('Alert');
+  $(document).load(function() {
+    $(this).addClass(color[current]);
   });
 
   // parallax effect

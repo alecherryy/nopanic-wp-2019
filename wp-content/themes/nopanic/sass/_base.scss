@@ -84,7 +84,7 @@ body {
       }
     }
   
-    .who-grid,
+
     .who-section,
     .contact-section {
       border-color: $black;
@@ -238,6 +238,10 @@ body {
       
       .cls-2 {
         fill: $red;
+      }
+
+      .menu--social {
+        border-color: $red;
       }
     }
   }

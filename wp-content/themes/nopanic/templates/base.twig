@@ -6,7 +6,7 @@
 	</head>
 {% endblock %}
 
-	<body class="{{ body_class }} {% if fn('is_front_page') %}{% else %}page-animate{% endif %}" data-template="base.twig">
+	<body class="{{ body_class }} {% if fn('is_front_page') %}{% else %}page-animate is-black{% endif %}" data-template="base.twig">
 		{% if fn('is_front_page') %}
 			<div class="front-intro front-intro--red">
 					<h1 class="is-in">No panic</h1>
@@ -41,9 +41,6 @@
 
 		{% block footer %}
 			{% if fn ('is_page','contact') %}
-				<footer class="site-footer">
-					{{ function('wp_footer') }}
-				</footer>
 			{% else %}
 				<footer class="site-footer">
 					{% if social_menu.items %}
@@ -119,8 +116,8 @@
 						</g>
 					</svg>
 				{% endif %}
-				{{ function('wp_footer') }}
 				</footer>
 		{% endblock %}
+		{{ function('wp_footer') }}
 	</body>
 </html>
