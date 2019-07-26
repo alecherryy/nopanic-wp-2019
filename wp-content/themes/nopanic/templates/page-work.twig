@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+{% block content %}
+	<div class="work-wrapper">
+		<h1>{{ post.title }}</h1>
+		<div class="work-section">
+			<div class="work-intro__top">
+				<p data-paroller-factor="0.05">{{ post.intro }}</p>
+			</div>
+		</div>
+		<div class="work-section">
+			<div class="work-grid">
+			{% set proj = post.get_field('projects') %}
+			{% for item in proj %}
+				<div class="work__left">
+					<a href="{{ item.behance_link }}" class="work__link"><h3 class="work__title">{{ item.title }}</h3></a>
+					<img class="work__image" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}">
+				</div>
+				<div class="work__right">
+					<p>{{ item.date('Y') }}</p>
+					{% for type in item.get_field('type') %}
+						<p>{{ type.name }}</p>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</div><!-- /content-wrapper -->
+{% endblock %}

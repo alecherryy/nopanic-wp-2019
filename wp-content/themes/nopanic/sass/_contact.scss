@@ -17,7 +17,7 @@
   }
 
   @include bp-xlarge {
-    height: 100vh;
+    min-height: 100vh;
   }
 
   address {
@@ -91,7 +91,7 @@
   white-space: nowrap;
   
   p {
-    animation: banner 25s linear infinite;
+    animation: banner 30s linear infinite;
     font: {
       family: $accent-font-family;
       size: 110px;
