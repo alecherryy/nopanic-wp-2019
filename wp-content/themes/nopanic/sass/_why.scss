@@ -1,0 +1,418 @@
+.why-wrapper {
+  padding: 45px 25px 0;
+  
+  h1,
+  h2 {
+    font-family: $accent-font-family;
+    font-size: $font-size-md;
+    text-transform: uppercase;
+  }
+
+  @include bp-small {
+    font-size: $font-size-lg;
+  }
+
+  @include bp-large {
+    padding: 45px 75px;
+
+    h1,
+    h2 {
+      font-size: $font-size-xxxl;
+    }
+  }
+
+  p {
+    font-size: 24px;
+    margin: 3rem 0 0;
+  }
+
+  @include bp-medium {
+    p {
+      font-size: 30px;
+      max-width: 70%;
+    }
+  }
+
+  @include bp-large {
+    p {
+      font-size: $font-size-lg;
+      max-width: 70%;
+      margin: 5rem 0 0;
+    }
+  }
+  
+  @include bp-xxlarge {
+    p {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+.why-section {
+  border-bottom: solid 1px $white;
+  margin: 0 0 3rem;
+  padding: 0 0 3rem;
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.why-toggle__wrapper {
+  text-align: center;
+}
+
+.why-video__toggle {
+  display: inline-block;
+  cursor: pointer;
+  font: {
+    family: $base-font-family;
+    size: $font-size-md;
+  }
+  margin: 2rem auto 0;
+  text: {
+    align: center;
+    decoration: underline;
+  }
+
+  @include bp-medium {
+    font-size: $font-size-lg;
+  }
+
+  @include bp-xlarge {
+    font-size: $font-size-xl;
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $white;
+    text-decoration: none;
+
+    .is-blue &,
+    .is-white & {
+      -webkit-text-stroke-color: $black;
+    }
+    
+    .is-red &,
+    .is-black &,
+    .is-dark-blue & {
+      -webkit-text-stroke-color: $white;
+    }
+    
+    .is-pink & {
+      -webkit-text-stroke-color: $red;
+    }
+  }
+}
+
+.why-video,
+.why-video--fallback {
+  margin: 3rem 0;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: '';
+    animation: reveal-video .8s cubic-bezier(0, 0, 0.2, 1);
+    -webkit-animation: reveal-video .8s cubic-bezier(0, 0, 0.2, 1);
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    background-color: $black;
+    display: block;
+    height: 51%;
+    left: 0;
+    position: absolute;
+    transition: all 1s ease-out;
+    width: 100%;
+    z-index: 2;
+  }
+
+  &::before {
+    top: -1%;
+  }
+
+  &::after {
+    bottom: -1%;
+  }
+
+  @include bp-medium {
+    margin: 5rem 0 7rem;
+  }
+}
+
+.why-video--fallback {
+  display: none;
+  stroke: none;
+
+  svg {
+    height: auto;
+    width: 100%;
+  }
+
+  .is-blue &,
+  .is-white & {
+    path {
+      fill: $black;
+    }
+  }
+  
+  .is-red &,
+  .is-black &,
+  .is-dark-blue & {
+    path {
+      fill: $white;
+    }
+  }
+  
+  .is-pink & {
+    path {
+      fill: $red;
+    }
+  }
+}
+
+@keyframes reveal-video {
+  to {
+    height: 0;
+  }
+}
+
+.why-video__wrapper {
+  -webkit-clip-path: url(#myClip);
+  clip-path: url(#myClip);
+  display: none;
+  padding-top: 17.5%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  max-width: 1770px;
+
+  @include bp-small {
+    display: block;
+  }
+}
+
+.why-video__video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.why-video-overlay {
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 15;
+
+  &::before,
+  &::after {
+    content: '';
+    height: 5px;
+    position: absolute;
+    right: 0;
+    width: 0;
+    transition: background-color .4s ease-in-out;
+    z-index: -1;
+
+    .is-blue &,
+    .is-white & {
+      background-color: $black;
+    }
+    
+    .is-red &,
+    .is-black &,
+    .is-dark-blue & {
+      background-color: $white;
+    }
+    
+    .is-pink & {
+      background-color: $red;
+    }
+  }
+
+  &::before {
+    bottom: 50%;
+  }
+  
+  &::after {
+    top: 50%;
+  }
+
+  &.animation-in {
+    &::before,
+    &::after {
+      animation: overlay 4s ease-in-out 0s 1 forwards;
+    }
+  }
+
+  &.animation-out {
+    animation: overlay-out 1.4s ease-in-out 1s 1 forwards;
+    opacity: 1;
+  }
+}
+
+@keyframes overlay {
+  50% {
+    height: 5px;
+    width: 100%;
+  }
+  
+  75% {
+    height: 50%;
+    width: 100%;
+  }
+  
+  100% {
+    height: 50%;
+    width: 100%;
+  }
+}
+
+@keyframes overlay-out {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+
+.why-video__toggle--close {
+  position: absolute;
+  margin: 0;
+  opacity: 0;
+  top: 25px;
+  
+  .animation-in & {
+    animation: text-fade-in .8s ease-in-out 3.8s 1 forwards;
+  }
+
+  .is-black & {
+    color: $black;
+  }
+
+  .is-white & {
+    color: $white;
+  }
+  
+  .is-blue & {
+    color: #6CC0BA;
+  }
+  
+  .is-dark-blue & {
+    color: #007D92;
+  }
+  
+  .is-red & {
+    color: $red;
+  }
+
+  .is-pink & {
+    color: $black;
+  }
+  
+  &:focus,
+  &:hover {
+    outline: none;
+    background: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $white;
+    text-decoration: none;
+
+    .is-white & {
+      -webkit-text-stroke-color: $white;
+    }
+    .is-blue  & {
+      -webkit-text-stroke-color: #6CC0BA
+    }
+
+    .is-black & {
+      -webkit-text-stroke-color: $black;
+    }
+    
+    .is-red & {
+      -webkit-text-stroke-color: $red;
+    }
+
+    .is-dark-blue & {
+      -webkit-text-stroke-color: #007D92;
+    }
+    
+    .is-pink & {
+      -webkit-text-stroke-color: $black;
+    }
+  }
+}
+
+.why-video-overlay__wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  opacity: 0;
+  padding: 45px 25px;
+  transition: background-color .4s ease-in-out;
+
+  .animation-in & {
+    animation: video-fade-in .8s ease-in-out 3s 1 forwards;
+  }
+  
+  .animation-out & {
+    animation: video-fade-out .4s ease-in-out 0s 1 forwards;
+  }
+
+  @include bp-large {
+    padding: 45px 75px;
+  }
+
+  video {
+    display: block;
+  }
+}
+
+@keyframes video-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(15%);
+  }
+  
+  25% {
+    opacity: 0;
+    transform: translateY(15%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes video-fade-out {
+  from {
+    opacity: 1;
+  }
+  
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes text-fade-in {
+  to {
+    opacity: 1;
+  }
+}

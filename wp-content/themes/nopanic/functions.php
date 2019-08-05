@@ -160,6 +160,9 @@ function add_theme_scripts() {
 	wp_register_script('paroller', get_stylesheet_directory_uri() . '/js/lib/jquery.paroller.min.js', array('jquery'), '', true );
   wp_enqueue_script('paroller');
 	
+	wp_register_script('page', get_stylesheet_directory_uri() . '/js/page-transition.js', array('jquery'), '', true );
+  wp_enqueue_script('page');
+	
 	wp_register_script('scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery','paroller', 'aos'), '', true );
   wp_enqueue_script('scripts');
 }

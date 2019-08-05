@@ -6,13 +6,13 @@
 {% set clients = post.get_field('clients') %}
 {% block content %}
 	<div class="who-wrapper">
-		<h1>{{ post.title }}</h1>
+		<h1 data-aos="fade-in">{{ post.title }}</h1>
 
 		<div class="who-section">
 			<div class="who-intro__top">
-				<p data-paroller-factor="0.05">{{ who.introduzione }}</p>
+				<p>{{ who.introduzione }}</p>
 			</div>
-			<img src="{{ who.immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-up">
+			<img src="{{ who.immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-in" data-aos-duration="1000">
 			<div class="who-intro__text">
 				<p>{{ who.testo }}</p>
 				<img class="who-intro__logo" src="/wp-content/themes/nopanic/images/who-logo-white.svg" data-paroller-factor="-0.05">
@@ -22,9 +22,9 @@
 		</div>
 		<div class="who-section">
 			<h2>Team</h2>
-			<img src="{{ team.team_immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-up">
+			<img src="{{ team.team_immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-in" data-aos-duration="2000">
 			<div class="who-team__text">
-				<p data-paroller-factor="-0.05">{{ team.testo }}</p>
+				<p>{{ team.testo }}</p>
 			</div>
 			<div class="who-grid who-grid--team">
 			{% set team_member = team.team_member %}
@@ -70,7 +70,7 @@
 				{% set logos = clients.logos %}
 				{% for item in logos %}
 					<div class="who-logos">
-						<img class="is-white" src="{{ item.white }}" data-aos="fade-up">
+						<img class="is-white" src="{{ item.white }}" data-aos-offset="0" data-aos="fade-up">
 						<img class="is-black" src="{{ item.black }}" data-aos="fade-up">
 						<img class="is-red" src="{{ item.coral }}" data-aos="fade-up">
 					</div>

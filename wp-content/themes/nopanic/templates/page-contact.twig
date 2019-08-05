@@ -5,8 +5,8 @@
 
 		<div class="contact-section">
 			<div class="contact-intro">
-				<div class="contact-intro__left">
-					<a href="mailto:{{ post.email }}" data-paroller-factor="0.05">{{ post.email }}</a>
+				<div class="contact-intro__left" data-aos="fade-in">
+					<a href="mailto:{{ post.email }}">{{ post.email }}</a>
 					<address>{{ post.address }}<br>
 						{{ post.city }}
 					</address>
@@ -16,7 +16,7 @@
 					<ul>
 						{% set links = post.get_field('social_media') %}
 						{% for item in links %}
-						<li><a href="{{ item.link }}" target="_blank">{{ item.text }}</a></li>
+						<li class="contact-social__item" data-aos="fade-up"><a href="{{ item.link }}" target="_blank">{{ item.text }}</a></li>
 						{% endfor %}
 					</ul>
 				</div>

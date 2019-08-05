@@ -1,0 +1,25 @@
+{% extends "base.twig" %}
+{% block content %}
+	<div class="why-wrapper">
+		<h1 data-aos="fade-in">{{ post.title }}</h1>
+		{% if post.get_field('video') %}
+			<div class="why-toggle__wrapper">
+				<button class="why-video__toggle video-js-toggle" data-aos="fade-up">play video</button>
+			</div>
+			{% include 'partial/why-video.twig' %}
+			
+			{% include 'partial/why-video-fallback.twig' %}
+			
+			{% include 'partial/why-video-overlay.twig' %}
+		{% endif %}
+		<div class="why-section">
+			<div class="why-intro">
+				<div class="why-intro__top">
+				{% for item in post.get_field('content') %}
+					<p data-aos="fade-up">{{ item.text }}</p>
+				{% endfor %}
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,11 +1,15 @@
 .work-wrapper {
-  padding: 0 25px;
+  padding: 45px 25px 0;
   
   h1,
   h2 {
     font-family: $accent-font-family;
-    font-size: $font-size-lg;
+    font-size: $font-size-md;
     text-transform: uppercase;
+  }
+
+  @include bp-small {
+    font-size: $font-size-lg;
   }
 
   @include bp-large {
@@ -91,7 +95,7 @@
 }
 
 .work-grid {
-  border-top: solid 1px $white;
+  border-color: $white;
   margin: 0;
 
   .is-blue &,
@@ -107,6 +111,11 @@
   
   .is-pink & {
     border-color: $red;
+  }
+
+  &:first-child {
+    border-top-width: 1px;
+    border-top-style: solid;
   }
 
   > * {
@@ -131,6 +140,10 @@
 
   h3 {
     margin: 0;
+
+    @include bp-small {
+      font-size: $font-size-h3;
+    }
   }
 
   @include bp-large {
@@ -152,6 +165,7 @@
 
 
 .work__right {
+  border-top: 0;
 
   @include bp-large {
     border-left: solid 1px $white;
@@ -185,9 +199,14 @@
 }
 
 .work__left {
-  align-items: center;
-  display: flex;
+  padding-right: 2rem;
   position: relative;
+
+  @include bp-xlarge {
+    align-items: center;
+    display: flex;
+    padding-right: 0;
+  }
 }
 
 .work__title {
@@ -197,37 +216,48 @@
 }
 
 .work__link {
-  display: inline-block;
+  display: block;
 
   &:before,
   &:after {
     z-index: 2;
   }
 
-  &:focus,
-  &:hover {
-    & ~ .work__image {
-      opacity: 1;
-      transform: none;
+  @include bp-small {
+    display: inline-block;
+  }
+
+  @include bp-medium {
+    &:focus,
+    &:hover {
+      & ~ .work__image {
+        opacity: 1;
+        transform: none;
+      }
     }
   }
 }
 
 .work__image {
   bottom: -105px;
-  display: none;
-  height: 278px;
+  display: block;
   object-fit: cover;
-  opacity: 0;
-  position: absolute;
+  max-width: 100%;
   right: -35px;
   transform: translateX(10px) translateY(10px);
   transition-delay: all .5s ease-in-out;
   transition: all .8s ease-in-out;
-  width: 443px;
   z-index: 1;
 
-  @include bp-medium {
+  @include bp-xlarge {
     display: block;
+    height: 278px;
+    opacity: 0;
+    position: absolute;
+    width: 443px;
+  }
+
+  .work-wrapper & {
+    margin: 2rem 0 0;
   }
 }

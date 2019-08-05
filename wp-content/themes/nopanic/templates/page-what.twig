@@ -1,18 +1,18 @@
 {% extends "base.twig" %}
 {% block content %}
 	<div class="work-wrapper">
-		<h1>{{ post.title }}</h1>
+		<h1 data-aos="fade-in">{{ post.title }}</h1>
 		<div class="work-section">
 			<div class="work-intro__top">
 				<p data-paroller-factor="0.05">{{ post.intro }}</p>
 			</div>
 		</div>
 		<div class="work-section">
-			<div class="work-grid">
 			{% set proj = post.get_field('projects') %}
 			{% for item in proj %}
+			<div class="work-grid">
 				<div class="work__left">
-					<a href="{{ item.behance_link }}" class="work__link"><h3 class="work__title">{{ item.title }}</h3></a>
+					<a href="{{ item.behance_link }}" target="_blank" class="work__link" data-aos="fade-up"><h3 class="work__title">{{ item.title }}</h3></a>
 					<img class="work__image" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}">
 				</div>
 				<div class="work__right">
@@ -21,8 +21,8 @@
 						<p>{{ type.name }}</p>
 					{% endfor %}
 				</div>
-			{% endfor %}
 			</div>
+			{% endfor %}
 		</div>
 	</div><!-- /content-wrapper -->
 {% endblock %}

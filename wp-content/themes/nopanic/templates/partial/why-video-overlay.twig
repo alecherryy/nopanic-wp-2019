@@ -1,0 +1,8 @@
+<div class="why-video-overlay">
+  <div class="why-video-overlay__wrapper">
+    <button class="why-video__toggle why-video__toggle--close video-js-toggle--close">close video</button>
+    <video title="{{ post.get_field('video').title }}" playsinline preload controls width="800" height="424">
+    <source src="{{ post.get_field('video') }}" type="video/mp4">
+    </video>
+  </div>
+</div>

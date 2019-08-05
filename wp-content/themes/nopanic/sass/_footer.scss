@@ -2,15 +2,16 @@
 footer {
   align-items: flex-end;
   justify-content: space-between;
-  padding: 150px 25px 25px;
   position: relative;
+  padding: 150px 25px 25px;
 
   .home & {
     bottom: 0;
     left: 0;
-    position: fixed;
+    padding: 0 25px 25px;
+    position: absolute;
     width: 100%;
-    z-index: 15;
+    z-index: 13;
   }
 
   @include bp-large {
@@ -61,10 +62,15 @@ footer {
 }
 
 #noPanicLogo {
+  display: none;
   bottom: 45px;
   right: 25px;
   position: absolute; 
   width: 300px;
+
+  @include bp-medium {
+    display: block;
+  }
 
   @include bp-xlarge {
     position: static;
