@@ -255,6 +255,14 @@ body {
   }
 }
 
+#wpadminbar {
+  a {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
 .no-panic-ripple {
   display: block;
   background: rgba(0, 0, 0, 0.5);

@@ -30,7 +30,6 @@ jQuery( document ).ready(function( $ ) {
   $(document).ready(function(){
   /*! Fades in whole page on load */
     $('body').fadeTo(1000, 1);
-  
   });
 
   /*! Reloads page on every visit */

@@ -16,9 +16,9 @@
 					<img class="work__image" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}">
 				</div>
 				<div class="work__right">
-					<p>{{ item.date('Y') }}</p>
+					<p data-aos="fade-up">{{ item.date('Y') }}</p>
 					{% for type in item.get_field('type') %}
-						<p>{{ type.name }}</p>
+						<p data-aos="fade-up">{{ type.name }}</p>
 					{% endfor %}
 				</div>
 			</div>

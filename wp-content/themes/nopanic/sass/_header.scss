@@ -7,6 +7,7 @@
 
   &:hover {
     .header-wrapper {
+
       &:before {
         height: 100%;
         opacity: 1;
@@ -29,7 +30,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 10px 15px;
   position: relative;
   
   @include bp-medium {
@@ -49,40 +50,114 @@
   }
 
   @include bp-large {
-    padding: 0 75px;
+    padding: 15px 25px 20px;
+  }
+}
+
+.site-logo-link {
+  &:after,
+  &:before {
+    display: none;
   }
 }
 
 .site-logo {
-  color: $white;
-  font-size: $base-font-size;
+  display: block;
+  color: transparent;
+  font: 0/0 a;
+  height: 30px;
+  margin: 1rem 0 0;
+  position: relative;
+  text-shadow: none;
+  width: 154px;
 
-  @include bp-xlarge {
-    font-size: 36px;
+  &::after {
+    content: '';
+    background-image: linear-gradient(transparent,transparent),url(../images/logo-white.svg);
+    color: transparent;
+    height: 30px;
+    text-shadow: none;
+    width: 154px;
+    background-position: center;
+    background-size: 154px 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
-  .site-logo-link {
-    &:after,
-    &:before {
-      display: none;
+  @include bp-large {
+    height: 40px;
+    width: 206px;
+
+    &::after {
+      height: 40px;
+      width: 206px;
+      background-size: 206px 40px;
     }
   }
+
+  .is-blue &,
+  .is-white & {
+    
+    &::after {
+      background-image: linear-gradient(transparent,transparent),url(../images/logo-black.svg);
+    }
+  }
+  
+  .is-red &,
+  .is-black &,
+  .is-dark-blue & {
+    &::after {
+      background-image: linear-gradient(transparent,transparent),url(../images/logo-white.svg);
+    }
+  }
+  
+  .is-pink & {
+    &::after {
+      background-image: linear-gradient(transparent,transparent),url(../images/logo-red.svg);
+    }
+  }  
 }
 
 .nav-main-inner {
-  display: none;
+  
+  &.is-hidden {
+    display: none;
+  }
+  
+  &.is-showing {
+    display: block;
+  }
   
   @include bp-medium-max {
-    background-color: $black;
     display: none;
     height: 100vh;
     left: 0;
-    opacity: 0;
     position: fixed;
     top: 0;
     transition: all .4s ease-in-out;
     width: 100%;
     z-index: -1;
+  }
+
+  @include bp-medium {
+    display: block;
+  }
+}
+
+.menu--main {
+
+  @include bp-medium-max {
+    background-color: $black;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-md;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    opacity: 0;
 
     .is-blue & {
       background-color: #6CC0BA;
@@ -104,24 +179,9 @@
     .is-dark-blue & {
       background-color: #007D92;
     }
-
-    .menu--main {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      font-size: $font-size-md;
-      justify-content: center;
-      height: 100vh;
-      width: 100%;
-      opacity: 1;
-    }
-  }
-
-  @include bp-medium {
-    display: block;
-  }
+  }  
 }
-  
+
 .menu {
   list-style: none;
   margin: 0;
@@ -171,7 +231,7 @@
       }
     }
     
-    @include bp-xlarge {
+    @include bp-large {
       font-size: 30px;
     }
   }
@@ -225,6 +285,7 @@
     height: 2px;
     position: absolute;
     transition: all .4s ease-in-out;
+    width: 44px;
   
     &:nth-child(2), 
     &:last-child {
@@ -243,12 +304,10 @@
   
     &:nth-child(2) {
       top: 9px;
-      width: 16px;
     }
     
     &:last-child {
       bottom: 0;
-      width: 27px;
     }
 
     .is-blue &,

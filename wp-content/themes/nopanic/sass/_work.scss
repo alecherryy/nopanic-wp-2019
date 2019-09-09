@@ -1,5 +1,5 @@
 .work-wrapper {
-  padding: 45px 25px 0;
+  padding: 60px 25px 0;
   
   h1,
   h2 {
@@ -212,11 +212,11 @@
 .work__title {
   display: inline-block;
   position: relative;
-  z-index: 2;
 }
 
 .work__link {
   display: block;
+  z-index: 2;
 
   &:before,
   &:after {

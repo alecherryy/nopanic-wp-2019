@@ -10,11 +10,11 @@
 		{% if fn('is_front_page') %}
 		<div class="front-welcome">	
 			<div class="front-intro front-intro--red">
-					<h1 class="is-in">No panic</h1>
+					<img class="is-in" src="/wp-content/themes/nopanic/images/logo-white.svg" alt="No Panic Agency">
 					<button class="front-intro-link front-intro-link--red">View more</button>
 			</div>
 			<div class="front-intro front-intro--white">
-				<h1>Do it just</h1>
+				<img src="/wp-content/themes/nopanic/images/logo-do-it-just.svg" alt="Do it just">
 				<button class="front-intro-link front-intro-link--white">View more</button>
 				</div>
 			</div>
@@ -24,9 +24,10 @@
 		<header class="header">
 			{% block header %}
 				<div class="header-wrapper" data-aos="fade-down">
-					<h1 class="site-logo" role="banner">
-						<a class="site-logo-link" href="{{ site.url }}" rel="home">{{ site.name }}</a>
-					</h1>
+					<a class="site-logo-link" href="{{ site.url }}" rel="home">
+						{# <h1 class="site-logo" role="banner">{{ site.name }}</h1> #}
+						<span class="site-logo" role="banner">{{ site.name }}</span>
+					</a>
 					<nav id="nav-main" class="nav-main" role="navigation">
 						<button id="menuIcon" class="menu-icon">
 								<div class="menu-icon__inner">

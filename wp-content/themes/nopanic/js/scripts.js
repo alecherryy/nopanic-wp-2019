@@ -20,17 +20,18 @@ jQuery( document ).ready(function( $ ) {
   }).resize();
 
   // rotate about images on hover
-  var about = ["wp-content/themes/nopanic/images/about/image1.jpg", "wp-content/themes/nopanic/images/about/image2.jpg","wp-content/themes/nopanic/images/about/image3.jpg","wp-content/themes/nopanic/images/about/image4.jpg"];
+  var about = ["wp-content/themes/nopanic/images/about/image-1.jpg", "wp-content/themes/nopanic/images/about/image-2.jpg","wp-content/themes/nopanic/images/about/image-3.jpg","wp-content/themes/nopanic/images/about/image-4.jpg","wp-content/themes/nopanic/images/about/image-5.jpg","wp-content/themes/nopanic/images/about/image-6.jpg","wp-content/themes/nopanic/images/about/image-7.jpg"];
   var aboutCurrent = 0;
 
   $('.about').mouseover(function() {
     aboutCurrent++;
     aboutCurrent %= about.length;
     $("#frontImage").attr("src", about[aboutCurrent]);
+    $("#hoverText").text('Who we are');
   });
   
   // rotate doing images on hover
-  var doing = ["wp-content/themes/nopanic/images/doing/image1.jpg", "wp-content/themes/nopanic/images/doing/image2.jpg","wp-content/themes/nopanic/images/doing/image3.jpg","wp-content/themes/nopanic/images/doing/image4.jpg"];
+  var doing = ["wp-content/themes/nopanic/images/doing/image-1.jpg", "wp-content/themes/nopanic/images/doing/image-2.jpg","wp-content/themes/nopanic/images/doing/image-3.jpg","wp-content/themes/nopanic/images/doing/image-4.jpg"];
   var doingCurrent = 0;
 
   $('.doing').mouseover(function() {
@@ -38,10 +39,11 @@ jQuery( document ).ready(function( $ ) {
     doingCurrent++;
     doingCurrent %= doing.length;
     $("#frontImage").attr("src", doing[doingCurrent]);
+    $("#hoverText").text('Why we do it');
   });
   
   // rotate just images on hover
-  var just = ["wp-content/themes/nopanic/images/just/image1.jpg", "wp-content/themes/nopanic/images/just/image2.jpg"];
+  var just = ["wp-content/themes/nopanic/images/just/image-1.jpg", "wp-content/themes/nopanic/images/just/image-2.jpg","wp-content/themes/nopanic/images/just/image-3.jpg"];
   var justCurrent = 0;
 
   $('.just').mouseover(function() {
@@ -49,10 +51,11 @@ jQuery( document ).ready(function( $ ) {
     justCurrent++;
     justCurrent %= just.length;
     $("#frontImage").attr("src", just[justCurrent]);
+    $("#hoverText").text('Do it just');
   });
   
   // rotate something images on hover
-  var something = ["wp-content/themes/nopanic/images/just/image1.jpg", "wp-content/themes/nopanic/images/just/image2.jpg"];
+  var something = ["wp-content/themes/nopanic/images/just/image-1.jpg", "wp-content/themes/nopanic/images/just/image-2.jpg", "wp-content/themes/nopanic/images/just/image-2.jpg"];
   var somethingCurrent = 0;
 
   $('.something').mouseover(function() {
@@ -60,6 +63,7 @@ jQuery( document ).ready(function( $ ) {
     somethingCurrent++;
     somethingCurrent %= something.length;
     $("#frontImage").attr("src", something[somethingCurrent]);
+    $("#hoverText").text('What we do');
   });
 
   $('.front-wrapper__inner a').mouseover(function() {
@@ -151,12 +155,12 @@ jQuery( document ).ready(function( $ ) {
       $('.front-intro-link--red').on('click', function(e) {
         e.preventDefault(); 
 
-        $(this).find('h1').addClass('is-out');
+        $(this).parent().find('img').addClass('is-out');
         $('.front-intro--red').css({
           'opacity':'0',
           'z-index':'19'
         });
-        $('.front-intro--white').find('h1').addClass('is-in');
+        $('.front-intro--white').find('img').addClass('is-in');
       });
       
       $('.front-intro-link--white').on('click', function(e) {
@@ -176,14 +180,45 @@ jQuery( document ).ready(function( $ ) {
     $('.why-video--fallback').show();
   }
   // mobile menu 
-  // $('#menuIcon').on('click', function() {
+  $('#menuIcon').on('click', function() {
 
-  //   if($(this).hasClass('is-open')) {
+    if($(this).hasClass('is-open')) {
 
-  //     $('body').removeClass('no-scroll');
-  //     $(this).removeClass('is-open');
-  //   } else {
-  //     $(this).addClass('is-open');
-  //   }
-  // });
+      $('body').removeClass('no-scroll');
+      $(this).removeClass('is-open');
+      setTimeout(function () { 
+        $('.nav-main-inner').removeClass('is-showing')
+      }, 500);
+      // $('.menu--main').removeClass('is-showing');
+      $('.menu--main').fadeTo(500, 0);
+    } else {
+      $(this).addClass('is-open');
+      $('.nav-main-inner').addClass('is-showing');
+      // $('.menu--main').addClass('is-showing');
+      $('.menu--main').fadeTo(500, 1);
+    }
+  });
+
+  $(function(){
+    $(window).bind('resize',function(){
+      // console.log($(this).width())
+      if($(this).width() < 768){
+        $('.nav-main-inner').addClass('is-hidden');
+      }
+      else{
+        $('.nav-main-inner').removeClass('is-hidden');
+        $('.menu--main').fadeTo(0, 1);
+      }
+    });
+    
+    $(document).ready(function(){
+      // console.log($(this).width())
+      if($(window).width() < 768){
+        $('.nav-main-inner').addClass('is-hidden');
+      }
+      else{
+        $('.nav-main-inner').removeClass('is-hidden');
+      }
+    })
+  })
 });
