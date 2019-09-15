@@ -51,7 +51,6 @@
 }
 
 .who-section {
-  border-bottom: solid 1px $white;
   margin: 0 0 3rem;
   padding: 0 0 3rem;
 
@@ -220,6 +219,50 @@
 
     .is-white,
     .is-black {
+      display: none;
+    }
+  }
+}
+  
+
+.who-member__image {
+  &.is-black,
+  &.is-red {
+    display: none;
+  }
+
+  .is-black &,
+  .is-red &,
+  .is-dark-blue & {
+    &.is-white {
+      display: block;
+    }
+
+    &.is-black,
+    &.is-red {
+      display: none;
+    }
+  }
+  
+  .is-blue &,
+  .is-white & {
+    &.is-black {
+      display: block;
+    }
+
+    &.is-white,
+    &.is-red {
+      display: none;
+    }
+  }
+  
+  .is-pink & {
+    &.is-red {
+      display: block;
+    }
+
+    &.is-white,
+    &.is-black {
       display: none;
     }
   }

@@ -39,7 +39,7 @@ jQuery( document ).ready(function( $ ) {
     doingCurrent++;
     doingCurrent %= doing.length;
     $("#frontImage").attr("src", doing[doingCurrent]);
-    $("#hoverText").text('Why we do it');
+    $("#hoverText").text('What we do');
   });
   
   // rotate just images on hover
@@ -51,7 +51,7 @@ jQuery( document ).ready(function( $ ) {
     justCurrent++;
     justCurrent %= just.length;
     $("#frontImage").attr("src", just[justCurrent]);
-    $("#hoverText").text('Do it just');
+    $("#hoverText").text('How we work');
   });
   
   // rotate something images on hover
@@ -63,7 +63,7 @@ jQuery( document ).ready(function( $ ) {
     somethingCurrent++;
     somethingCurrent %= something.length;
     $("#frontImage").attr("src", something[somethingCurrent]);
-    $("#hoverText").text('What we do');
+    $("#hoverText").text('What we have done ');
   });
 
   $('.front-wrapper__inner a').mouseover(function() {

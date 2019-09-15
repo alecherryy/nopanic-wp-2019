@@ -4,6 +4,7 @@
 {% set team = post.get_field('team') %}
 {% set what = post.get_field('what') %}
 {% set clients = post.get_field('clients') %}
+{% set classes = post.get_field('classes') %}
 {% block content %}
 	<div class="who-wrapper">
 		<h1 data-aos="fade-in">{{ post.title }}</h1>
@@ -37,13 +38,11 @@
 				} %}
 			{% endfor %}
 				<div class="who-member">
-					<div class="who-member__image">
-						<a class="who-plus" href="{{ site.url }}/contact">
-							<span class="top"></span>
-							<span class="middle"></span>
-							<span class="bottom"></span>
-						</a>
-					</div>
+					<a href="{{ site.url }}/contact">
+						<img class="who-member__image is-white" src="/wp-content/themes/nopanic/images/plus-white.png" data-aos-offset="0" data-aos="fade-up">
+						<img class="who-member__image is-black" src="/wp-content/themes/nopanic/images/plus-black.png" data-aos="fade-up">
+						<img class="who-member__image is-red" src="/wp-content/themes/nopanic/images/plus-red.png" data-aos="fade-up">
+					</a>
 				</div>
 			</div>
 		</div>
@@ -58,9 +57,12 @@
 				{% include 'partial/content.twig' %}
 				{% include 'partial/training.twig' %}
 				{% include 'partial/digital.twig' %}
-				<div class="icon who-ideas">
-					<h3><a href="{{ site.url }}/contact">Got ideas?</a></h3>
-				</div>
+				{% if post.brochure %}
+					<div class="icon who-ideas">
+						<h3><a target="_blank" href="{{ post.get_field('brochure') }}" download>Download<br>
+						our brochure</a></h3>
+					</div>
+				{% endif %}
 			</div>
 		</div>
 		
@@ -70,7 +72,20 @@
 				{% set logos = clients.logos %}
 				{% for item in logos %}
 					<div class="who-logos">
-						<img class="is-white" src="{{ item.white }}" data-aos-offset="0" data-aos="fade-up">
+						<img class="is-white" src="{{ item.white }}" data-aos="fade-up">
+						<img class="is-black" src="{{ item.black }}" data-aos="fade-up">
+						<img class="is-red" src="{{ item.coral }}" data-aos="fade-up">
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="who-section">
+			<h2>Classes</h2>
+			<div class="who-grid">
+				{% set classes = classes.logos %}
+				{% for item in classes %}
+					<div class="who-logos">
+						<img class="is-white" src="{{ item.white }}" data-aos="fade-up">
 						<img class="is-black" src="{{ item.black }}" data-aos="fade-up">
 						<img class="is-red" src="{{ item.coral }}" data-aos="fade-up">
 					</div>

@@ -1,3 +1,5 @@
+{% set map = post.get_field('map') %}
+
 {% extends "base.twig" %}
 {% block content %}
 	<div class="contact-wrapper">
@@ -10,7 +12,16 @@
 					<address>{{ post.address }}<br>
 						{{ post.city }}
 					</address>
-					{# {{ post.get_field('map') }} #}
+					<br>
+					{% if map %}
+						<div class="who-member">
+							<a href="{{ site.url }}/contact">
+								<img class="who-member__image is-white" src="{{ map.white }}" data-aos-offset="0" data-aos="fade-up">
+								<img class="who-member__image is-black" src="{{ map.black }}" data-aos="fade-up">
+								<img class="who-member__image is-red" src="{{ map.red }}" data-aos="fade-up">
+							</a>
+						</div>
+					{% endif %}
 				</div>
 				<div class="contact-intro__right">
 					<ul>

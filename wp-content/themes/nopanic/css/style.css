@@ -4683,7 +4683,6 @@ footer {
 }
 
 .who-section {
-  border-bottom: solid 1px #ffffff;
   margin: 0 0 3rem;
   padding: 0 0 3rem;
 }
@@ -4841,6 +4840,28 @@ footer {
 }
 .is-pink .who-logos .is-white,
 .is-pink .who-logos .is-black {
+  display: none;
+}
+
+.who-member__image.is-black, .who-member__image.is-red {
+  display: none;
+}
+.is-black .who-member__image.is-white, .is-red .who-member__image.is-white, .is-dark-blue .who-member__image.is-white {
+  display: block;
+}
+.is-black .who-member__image.is-black, .is-black .who-member__image.is-red, .is-red .who-member__image.is-black, .is-red .who-member__image.is-red, .is-dark-blue .who-member__image.is-black, .is-dark-blue .who-member__image.is-red {
+  display: none;
+}
+.is-blue .who-member__image.is-black, .is-white .who-member__image.is-black {
+  display: block;
+}
+.is-blue .who-member__image.is-white, .is-blue .who-member__image.is-red, .is-white .who-member__image.is-white, .is-white .who-member__image.is-red {
+  display: none;
+}
+.is-pink .who-member__image.is-red {
+  display: block;
+}
+.is-pink .who-member__image.is-white, .is-pink .who-member__image.is-black {
   display: none;
 }
 
