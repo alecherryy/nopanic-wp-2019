@@ -5737,6 +5737,11 @@ footer {
   display: inline-block;
   position: relative;
 }
+@media (min-width: 1600px) {
+  .work__title {
+    font-size: 60px;
+  }
+}
 
 .work__link {
   display: block;

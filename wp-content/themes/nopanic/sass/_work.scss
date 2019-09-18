@@ -212,6 +212,10 @@
 .work__title {
   display: inline-block;
   position: relative;
+
+  @include bp-xxlarge {
+    font-size: $font-size-h3;
+  }
 }
 
 .work__link {
