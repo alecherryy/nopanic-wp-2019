@@ -381,6 +381,11 @@
 
   video {
     display: block;
+    max-width: 80%;
+    
+    @include bp-large {
+      margin-top: 4rem;
+    }
   }
 }
 

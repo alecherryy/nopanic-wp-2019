@@ -5456,6 +5456,12 @@ footer {
 }
 .why-video-overlay__wrapper video {
   display: block;
+  max-width: 80%;
+}
+@media (min-width: 992px) {
+  .why-video-overlay__wrapper video {
+    margin-top: 4rem;
+  }
 }
 
 @-webkit-keyframes video-fade-in {
