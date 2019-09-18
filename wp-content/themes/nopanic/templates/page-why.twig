@@ -19,9 +19,7 @@
 		<div class="why-section">
 			<div class="why-intro">
 				<div class="why-intro__top">
-				{% for item in post.get_field('content') %}
-					<p data-aos="fade-up">{{ item.text }}</p>
-				{% endfor %}
+					{{ post.content }}
 			</div>
 			</div>
 		</div>
