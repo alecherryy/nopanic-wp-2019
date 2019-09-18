@@ -30,7 +30,7 @@ footer {
   li {
     display: inline-block;
     margin: 0;
-    padding: 0 .5rem;
+    padding-right: .5rem;
 
     &:first-child {
       padding-left: 0;
@@ -39,12 +39,14 @@ footer {
 
   a {
     font-size: 16px;
+    padding: 0;
     text-transform: lowercase;
   }
 
   @include bp-large {
     li {
-      padding: 0 1rem;
+      padding: 0;
+      padding-right: 1rem;
     }
   }
 
@@ -52,7 +54,7 @@ footer {
     left: 75px;
 
     li {
-      padding: 0 1.5rem;
+      padding-right: 1.5rem;
     }
 
     a {

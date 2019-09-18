@@ -38,7 +38,8 @@ body {
       }
     }
 
-    .who-intro__logo {
+    .who-intro__logo,
+    .why-intro__logo {
       display: none;
   
       &.is-black {
@@ -84,7 +85,8 @@ body {
       }
     }
 
-    .who-intro__logo {
+    .who-intro__logo,
+    .why-intro__logo {
       display: none;
   
       &.is-black {
@@ -225,7 +227,8 @@ body {
       border-color: $red;
     }
     
-    .who-intro__logo {
+    .who-intro__logo,
+    .why-intro__logo {
       display: none;
   
       &.is-red {

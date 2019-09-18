@@ -10,20 +10,31 @@
 .who-member__image {
 
   img {
-    display: block;
+    display: none;
     object-fit: cover;
 
     &:last-child {
-      display: none;
+      display: block;
     }
   }
 
-  &:hover {
+  @include bp-medium {
     img {
-      display: none;
+      display: block;
+      object-fit: cover;
   
       &:last-child {
-        display: block;
+        display: none;
+      }
+    }
+  
+    &:hover {
+      img {
+        display: none;
+    
+        &:last-child {
+          display: block;
+        }
       }
     }
   }
@@ -34,13 +45,13 @@
     font-size: $font-size-sm;
     margin: .5rem 0;
 
-  @include bp-small {
-    font-size: $font-size-md;
-  }
+    @include bp-small {
+      font-size: $font-size-md;
+    }
 
-  @include bp-xxlarge {
-    font-size: $font-size-lg;
-  }
+    @include bp-xxlarge {
+      font-size: $font-size-lg;
+    }
   }
 }
 

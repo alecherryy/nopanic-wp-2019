@@ -8,6 +8,14 @@
   }
 }
 
+.front-welcome {
+  display: none;
+
+  @include bp-medium {
+    display: block;
+  }
+}
+
 .front-intro {
   align-items: center;
   display: flex;
@@ -38,6 +46,7 @@
     color: $white;
     display: block;
     max-width: 320px;
+    padding: 0 5px;
     text-transform: lowercase;
 
     &.is-in {
@@ -71,8 +80,8 @@
     color: $black;
     display: block;
     max-width: 480px;
+    padding: 0 5px 17px;
     text-transform: uppercase;
-    padding-bottom: 17px;
     transform: translateY(55%);
 
     &.is-in {

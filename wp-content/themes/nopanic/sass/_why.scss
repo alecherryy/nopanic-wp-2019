@@ -416,3 +416,16 @@
     opacity: 1;
   }
 }
+
+.why-intro__logo {
+  margin: 3rem 0;
+
+  &.is-black,
+  &.is-red {
+    display: none;
+  }
+
+  @include bp-medium {
+    margin: 6rem 0;
+  }
+}

@@ -5,7 +5,7 @@ jQuery( document ).ready(function( $ ) {
   // page transitions
   if($('a').hasClass('menu__link')) {
 
-    $('a').click(function(e) {
+    $('.menu__link').click(function(e) {
       e.preventDefault();
       var newLocation = $(this).attr('href');
       // $('body').fadeOut(1000, newpage);
@@ -17,7 +17,7 @@ jQuery( document ).ready(function( $ ) {
     
   } else {
 
-  $('a').on(function(e) {
+  $('.menu__link').on(function(e) {
     e.preventDefault();
     newLocation = $(this).attr('href');
 

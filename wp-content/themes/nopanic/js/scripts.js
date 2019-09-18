@@ -39,7 +39,7 @@ jQuery( document ).ready(function( $ ) {
     doingCurrent++;
     doingCurrent %= doing.length;
     $("#frontImage").attr("src", doing[doingCurrent]);
-    $("#hoverText").text('What we do');
+    $("#hoverText").text('Why we do it');
   });
   
   // rotate just images on hover
@@ -143,35 +143,6 @@ jQuery( document ).ready(function( $ ) {
     }, 3400);
   })
 
-  // show intro screen only the first time a user visits the site
-  $(document).ready(function() {
-    document.cookie = 'onetime=true'
-    
-    if (document.cookie != 'onetime=true') {
-      $('.front-welcome').hide();
-    } else {
-      $('.front-welcome').show();
-
-      $('.front-intro-link--red').on('click', function(e) {
-        e.preventDefault(); 
-
-        $(this).parent().find('img').addClass('is-out');
-        $('.front-intro--red').css({
-          'opacity':'0',
-          'z-index':'19'
-        });
-        $('.front-intro--white').find('img').addClass('is-in');
-      });
-      
-      $('.front-intro-link--white').on('click', function(e) {
-        e.preventDefault(); 
-
-        $('.front-intro--white').slideUp();
-        $('.front-intro--red').css('z-index','-1');
-      });
-    }
-  })
-
   // fallback for safari SVG clip-path
   var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
@@ -208,6 +179,34 @@ jQuery( document ).ready(function( $ ) {
       else{
         $('.nav-main-inner').removeClass('is-hidden');
         $('.menu--main').fadeTo(0, 1);
+
+        $(document).ready(function() {
+          document.cookie = 'onetime=true'
+          
+          if (document.cookie != 'onetime=true') {
+            $('.front-welcome').hide();
+          } else {
+            $('.front-welcome').show();
+
+            $('.front-intro-link--red').on('click', function(e) {
+              e.preventDefault(); 
+
+              $(this).parent().find('img').addClass('is-out');
+              $('.front-intro--red').css({
+                'opacity':'0',
+                'z-index':'19'
+              });
+              $('.front-intro--white').find('img').addClass('is-in');
+            });
+            
+            $('.front-intro-link--white').on('click', function(e) {
+              e.preventDefault(); 
+
+              $('.front-intro--white').slideUp();
+              $('.front-intro--red').css('z-index','-1');
+            });
+          }
+        })
       }
     });
     
@@ -218,6 +217,35 @@ jQuery( document ).ready(function( $ ) {
       }
       else{
         $('.nav-main-inner').removeClass('is-hidden');
+
+        // show intro screen only the first time a user visits the site
+        $(document).ready(function() {
+          document.cookie = 'onetime=true'
+          
+          if (document.cookie != 'onetime=true') {
+            $('.front-welcome').hide();
+          } else {
+            $('.front-welcome').show();
+
+            $('.front-intro-link--red').on('click', function(e) {
+              e.preventDefault(); 
+
+              $(this).parent().find('img').addClass('is-out');
+              $('.front-intro--red').css({
+                'opacity':'0',
+                'z-index':'19'
+              });
+              $('.front-intro--white').find('img').addClass('is-in');
+            });
+            
+            $('.front-intro-link--white').on('click', function(e) {
+              e.preventDefault(); 
+
+              $('.front-intro--white').slideUp();
+              $('.front-intro--red').css('z-index','-1');
+            });
+          }
+        })
       }
     })
   })
