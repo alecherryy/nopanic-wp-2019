@@ -3,7 +3,7 @@ jQuery( document ).ready(function( $ ) {
   'use strict';
 
   // page transitions
-  if($('a').hasClass('menu__link')) {
+  if($('.menu--main a').hasClass('menu__link')) {
 
     $('.menu__link').click(function(e) {
       e.preventDefault();
