@@ -8,7 +8,7 @@
 			<div class="who-intro__top">
 				<p>{{ post.introduzione }}</p>
 			</div>
-			{% for item in immagini %}
+			{% for item in post.get_field('immagini') %}
 				<img src="{{ item.immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-in" data-aos-duration="1000" style="margin:0">
 			{% endfor %}
 	</div><!-- /content-wrapper -->
