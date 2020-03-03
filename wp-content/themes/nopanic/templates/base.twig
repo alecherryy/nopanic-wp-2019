@@ -8,23 +8,34 @@
 
 	<body class="{{ body_class }} {% if fn('is_front_page') %}{% else %}page-animate is-black{% endif %}" data-template="base.twig">
 		{% if fn('is_front_page') %}
+		<div class="front-welcome">	
 			<div class="front-intro front-intro--red">
-					<h1 class="is-in">No panic</h1>
-					<a class="front-intro-link front-intro-link--red" href="#">View more</a>
+					<img class="is-in" src="/wp-content/themes/nopanic/images/logo-white.svg" alt="No Panic Agency">
+					<button class="front-intro-link front-intro-link--red">View more</button>
 			</div>
 			<div class="front-intro front-intro--white">
-				<h1>Do it just</h1>
-				<a class="front-intro-link front-intro-link--white" href="#">View more</a>
+				<img src="/wp-content/themes/nopanic/images/logo-do-it-just.svg" alt="Do it just">
+				<button class="front-intro-link front-intro-link--white">View more</button>
 				</div>
 			</div>
+		</div>
 		{% endif %}
-		<header class="header" >
+		<span class="no-panic-ripple"></span>
+		<header class="header">
 			{% block header %}
-				<div class="header-wrapper">
-					<h1 class="site-logo" role="banner">
-						<a class="site-logo-link" href="{{ site.url }}" rel="home">{{ site.name }}</a>
-					</h1>
+				<div class="header-wrapper" data-aos="fade-down">
+					<a class="site-logo-link" href="{{ site.url }}" rel="home">
+						{# <h1 class="site-logo" role="banner">{{ site.name }}</h1> #}
+						<span class="site-logo" role="banner">{{ site.name }}</span>
+					</a>
 					<nav id="nav-main" class="nav-main" role="navigation">
+						<button id="menuIcon" class="menu-icon">
+								<div class="menu-icon__inner">
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+						</button>
 						<div class="nav-main-inner">
 							{% include "menu.twig" with {'menu': menu.get_items} %}
 						</div>
@@ -32,7 +43,6 @@
 				</div>
 			{% endblock %}
 		</header>
-
 		<main id="content" role="main" class="content-wrapper">
 			{% block content %}
 				Sorry, no content
@@ -46,13 +56,13 @@
 					{% if social_menu.items %}
 					<ul class="menu menu--social">
 						{% for item in social_menu.items %}
-							<li class="menu__item">
+							<li class="menu__item" data-aos="fade-up" data-aos-offset="-200">
 								<a class="menu__link" target="_blank" href="{{ item.link }}">{{ item.title }}</a>
 							</li>
 						{% endfor %}
 					</ul>
 					{% endif %}
-					<svg id="noPanicLogo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="450.94" height="229.43" viewBox="0 0 450.94 229.43">
+					<svg data-aos="fade-up" id="noPanicLogo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="450.94" height="229.43" viewBox="0 0 450.94 229.43">
 						<defs>
 							<style>
 								.cls-1 {

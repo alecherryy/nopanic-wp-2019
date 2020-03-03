@@ -1,11 +1,14 @@
 .contact-wrapper {
-  padding: 0 25px;
-
-  h1,
-  h2 {
+  padding: 60px 25px 0;
+  
+  h1 {
     font-family: $accent-font-family;
-    font-size: $font-size-lg;
+    font-size: $font-size-md;
     text-transform: uppercase;
+  }
+
+  @include bp-small {
+    font-size: $font-size-lg;
   }
 
   @include bp-large {
@@ -39,6 +42,7 @@
 .contact-intro__right {
   ul {
     list-style: none;
+    margin: 2rem 0 0;
     margin-left: 0;
     padding-left: 0;
 
@@ -48,6 +52,10 @@
       &:last-child {
         padding: 0;
       }
+    }
+
+    @include bp-xlarge {
+      margin: 0;
     }
   }
 
@@ -61,6 +69,12 @@
     @include bp-xxlarge {
       font-size: $font-size-xl;
     }
+  }
+}
+
+@for $i from 1 through 5 {
+  .contact-social__item:nth-child(#{$i}n) {
+    transition-delay: #{$i * .2}s;
   }
 }
 
@@ -107,9 +121,9 @@
 
 @keyframes banner {
   0%   { 
-  transform: translateX(100%); 		
+    transform: translateX(100%); 		
   }
   100% { 
-  transform: translateX(-150%); 
+    transform: translateX(-150%); 
   }
 }

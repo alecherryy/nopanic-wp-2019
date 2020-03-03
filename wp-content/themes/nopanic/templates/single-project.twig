@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="who-wrapper">
+		<h1 data-aos="fade-in">{{ post.title }}</h1>
+
+		<div class="who-section">
+			<div class="who-intro__top">
+				<p>{{ post.text }}</p>
+			</div>
+			{% for item in post.get_field('immagini') %}
+				<img src="{{ item.immagine }}" alt="{{ post.immagine.alt }}" data-aos="fade-in" data-aos-duration="1000" style="margin:0">
+			{% endfor %}
+	</div><!-- /content-wrapper -->
+{% endblock %}

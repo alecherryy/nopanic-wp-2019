@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="front-wrapper" {% if post.thumbnail.src %}style="background-image: url({{ post.thumbnail.src }})"{% endif %}>
-		<div class="front-wrapper__inner">
+		<div class="front-wrapper__inner" data-aos="fade-in" data-aos-delay="1000">
 			{{ post.content }}
 		</div>
 		
@@ -16,7 +16,7 @@
 		{% endif %}
 
 		<div class="front-wrapper__hover">
-			<h4>Some text</h4>
+			<h4 id="hoverText">Some text</h4>
 			<img id="frontImage">
 		</div>
 	</div>

@@ -7,17 +7,25 @@ html {
 }
 
 body {
-  background-color: $black;
   color: $white;
   margin: 0;
+  opacity: 0;
   overflow-x: hidden;
   padding: 0;
   word-wrap: break-word;
   transition: background-color .4s ease-in-out;
 
-  // &.no-scroll {
-  //   overflow-y: hidden;
-  // } 
+  > * {
+    box-sizing: border-box;
+  }
+
+  &.no-scroll {
+    overflow-y: hidden;
+  } 
+
+  &.is-black {
+    background-color: $black;
+  }
 
   &.is-white {
     background-color: $white;
@@ -30,7 +38,8 @@ body {
       }
     }
 
-    .who-intro__logo {
+    .who-intro__logo,
+    .why-intro__logo {
       display: none;
   
       &.is-black {
@@ -76,7 +85,8 @@ body {
       }
     }
 
-    .who-intro__logo {
+    .who-intro__logo,
+    .why-intro__logo {
       display: none;
   
       &.is-black {
@@ -217,7 +227,8 @@ body {
       border-color: $red;
     }
     
-    .who-intro__logo {
+    .who-intro__logo,
+    .why-intro__logo {
       display: none;
   
       &.is-red {
@@ -244,6 +255,49 @@ body {
         border-color: $red;
       }
     }
+  }
+}
+
+#wpadminbar {
+  a {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+.no-panic-ripple {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  height: 10px;
+  opacity: 0;
+  position: fixed;
+  transform: scale(0);
+  width: 10px;
+  z-index: 99;
+
+  .home & {
+    display: none;
+  }
+
+  .is-black &,
+  .is-pink & {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  &.animate {
+    animation: ripple-mo 1s cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+@keyframes ripple-mo {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
   }
 }
 
@@ -311,7 +365,7 @@ h2,
 h3,
 %h3 {
   @extend %hN;
-  font-size: $font-size-lg;
+  font-size: $font-size-h4;
   font-weight: 700;
 
   @include bp-xxlarge {
@@ -407,6 +461,7 @@ a {
 
   &:hover,
   &:focus {
+    outline: none;
     text-decoration: none;
 
     &:after,
@@ -452,4 +507,25 @@ a {
 
 img {
   max-width: 100%;
+}
+
+button {
+  background-color: transparent;
+  color: $white;
+  border: 0;
+
+  .is-white &,
+  .is-blue &,
+  .is-white & {
+    color: $black;
+  }
+  
+  .is-red &,
+  .is-dark-blue & {
+    color: $white;
+  }
+  
+  .is-pink & {
+    color: $red;
+  }
 }

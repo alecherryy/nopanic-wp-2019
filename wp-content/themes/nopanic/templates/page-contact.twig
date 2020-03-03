@@ -1,3 +1,5 @@
+{% set map = post.get_field('map') %}
+
 {% extends "base.twig" %}
 {% block content %}
 	<div class="contact-wrapper">
@@ -5,18 +7,27 @@
 
 		<div class="contact-section">
 			<div class="contact-intro">
-				<div class="contact-intro__left">
-					<a href="mailto:{{ post.email }}" data-paroller-factor="0.05">{{ post.email }}</a>
+				<div class="contact-intro__left" data-aos="fade-in">
+					<a href="mailto:{{ post.email }}">{{ post.email }}</a>
 					<address>{{ post.address }}<br>
 						{{ post.city }}
 					</address>
-					{# {{ post.get_field('map') }} #}
+					<br>
+					{% if map %}
+						<div class="who-member">
+							<a href="{{ site.url }}/contact">
+								<img class="who-member__image is-white" src="{{ map.white }}" data-aos-offset="0" data-aos="fade-up">
+								<img class="who-member__image is-black" src="{{ map.black }}" data-aos="fade-up">
+								<img class="who-member__image is-red" src="{{ map.red }}" data-aos="fade-up">
+							</a>
+						</div>
+					{% endif %}
 				</div>
 				<div class="contact-intro__right">
 					<ul>
 						{% set links = post.get_field('social_media') %}
 						{% for item in links %}
-						<li><a href="{{ item.link }}" target="_blank">{{ item.text }}</a></li>
+						<li class="contact-social__item" data-aos="fade-up"><a href="{{ item.link }}" target="_blank">{{ item.text }}</a></li>
 						{% endfor %}
 					</ul>
 				</div>

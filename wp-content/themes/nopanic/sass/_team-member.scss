@@ -1,39 +1,70 @@
 .who-member {
-  h4,
-  p {
-    margin: 0;
-  }
 
   .who-wrapper & {
     img {
       margin: 0;
     }
-    p {
-      font-size: $font-size-sm;
-    }
   }
 }
 
 .who-member__image {
-  height: 80%;
-  max-width: 500px;
 
   img {
-    display: block;
+    display: none;
     object-fit: cover;
 
     &:last-child {
-      display: none;
+      display: block;
     }
   }
 
-  &:hover {
+  @include bp-medium {
     img {
-      display: none;
+      display: block;
+      object-fit: cover;
   
       &:last-child {
-        display: block;
+        display: none;
       }
+    }
+  
+    &:hover {
+      img {
+        display: none;
+    
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.who-member__name {
+  .who-wrapper & {
+    font-size: $font-size-sm;
+    margin: .5rem 0;
+
+    @include bp-small {
+      font-size: $font-size-md;
+    }
+
+    @include bp-xxlarge {
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+.who-member__role {
+  .who-wrapper & {
+    font-size: $font-size-xs;
+
+    @include bp-small {
+      font-size: $font-size-sm;
+    }
+
+    @include bp-xxlarge {
+      font-size: $font-size-md;
     }
   }
 }
@@ -100,12 +131,12 @@
 
 @for $i from 1 through 10 {
   .who-member:nth-child(#{$i}n) {
-    transition-delay: #{$i * .2}s;
+    transition-delay: #{$i * .1}s;
   }
 
   .who-logos:nth-child(#{$i}n) {
     img {
-      transition-delay: #{$i * .2}s;
+      transition-delay: #{$i * .1}s;
     }
   }
 }

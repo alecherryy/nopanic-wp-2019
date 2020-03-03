@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+{% block content %}
+	<div class="why-wrapper">
+		<h1 data-aos="fade-in">{{ post.title }}</h1>
+		{% if post.get_field('video') %}
+			<div class="why-toggle__wrapper">
+				<button class="why-video__toggle video-js-toggle" data-aos="fade-up">play video</button>
+			</div>
+			{% include 'partial/why-video.twig' %}
+			
+			{% include 'partial/why-video-fallback.twig' %}
+			
+			{% include 'partial/why-video-overlay.twig' %}
+		{% else %}
+			<img class="why-intro__logo" src="/wp-content/themes/nopanic/images/in-future-white.svg" data-aos="fade-up">
+			<img class="why-intro__logo is-black" src="/wp-content/themes/nopanic/images/in-future-black.svg" data-aos="fade-up">
+			<img class="why-intro__logo is-red" src="/wp-content/themes/nopanic/images/in-future-red.svg" data-aos="fade-up">
+		{% endif %}
+		<div class="why-section">
+			<div class="why-intro">
+				<div class="why-intro__top">
+					{{ post.content }}
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
