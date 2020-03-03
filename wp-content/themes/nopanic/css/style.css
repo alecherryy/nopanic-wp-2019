@@ -4831,9 +4831,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-.who-logos img {
-  margin: 6rem 0;
+  margin: 2rem;
 }
 .who-logos .is-black,
 .who-logos .is-red {
