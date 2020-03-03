@@ -137,6 +137,7 @@ jQuery( document ).ready(function( $ ) {
   })
   
   $('.video-js-toggle--close').on('click', function() {
+    $('#whyVideo').pause();
     $('.why-video-overlay').addClass('animation-out');
     setTimeout(function () {   
       $('.why-video-overlay').hide().removeClass('animation-in');

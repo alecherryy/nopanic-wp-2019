@@ -1,0 +1,4 @@
+name: no-panic-agency
+recipe: wordpress
+config:
+  webroot: .
